@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+html, body, * {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+a {
+  color: #327EED;
+  cursor: pointer;
+}
+
+.section {
+  @apply p-8;
+}
+
+.tag {
+  @apply shadow-md border rounded-md p-1 px-3 w-max text-xs;
+}
+
+.section__title {
+  @apply font-bold;
+  @apply text-2xl md:text-4xl text-center;
+  @apply leading-9;
+}
+
+.section__sub-title {
+  @apply font-normal;
+  @apply text-base md:text-2xl text-center;
+  @apply leading-5 md:leading-8;
+}
+
+.card {
+  @apply grow;
+  @apply rounded p-6 flex flex-col justify-center md:justify-start content-center;
+
+  .card__image {
+    @apply flex justify-center pb-4;
+  }
+
+  .card__text {
+    @apply text-center;
+  }
+}
+
+input.basic {
+  @apply h-full py-4 pl-3 pr-16 text-sm border-2 border-gray-200 rounded-lg;
+}
+
+button {
+  @apply text-base uppercase;
+  font-weight: bold !important;
+  &[data-type="default"] {
+    // @apply bg-gradient-to-r from-blue-400 to-blue-700;
+    background: linear-gradient(90.33deg, #FFFFFF -59.96%, rgba(255, 255, 255, 0) 45.74%), #4273BD !important;
+  }
+  &[data-type="alternative"] {
+    color: white !important;
+    border: 0;
+    background: linear-gradient(90.33deg, rgba(255, 255, 255, 0.8) -59.96%, rgba(255, 255, 255, 0) 45.74%), rgba(97, 130, 179, 0.7) !important;
+  }
+  &[data-type="light"] {
+    color: #4273BD !important;
+    border: 2px solid #4475BE !important;
+  }
+}
+
+.prose {
+  @apply prose-table:border prose-th:border prose-td:border prose-td:p-2 prose-th:p-2 leading-[1];
+}

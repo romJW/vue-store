@@ -1,0 +1,464 @@
+<template>
+  <Modal
+    :isOpen="modal.isOpen"
+    :isLoading="modal.isLoading"
+    :onClose="() => modal.isOpen = false"
+    class="!p-10 gap-2 flex flex-col"
+  >
+    <template v-slot:title>
+      <span class="font-bold text-xl">Оставьте ваши данные</span>
+    </template>
+    <template v-slot:description>
+      <span class="text-md">и наш проектировщик свяжется <br/> с Вами в ближайшее время</span>
+    </template>
+    <template v-slot:body>
+      <div class="flex flex-col gap-2">
+        <Input @onChange="v => form.name = v" type="text" placeholder="Ваше имя" />
+        <Input @onChange="v => form.phone = v" type="tel" placeholder="Номер телефона" />
+        <Button @click="sendRequest" type="default">Оставить заявку</Button>
+        <div class="text-center text-gray-400">
+          <span class="font-normal text-xs">
+            Нажимая на кнопку, вы соглашаетесь с
+          </span>
+          <br/>
+          <a class="font-normal text-xs" href="#">условиями обработки персональных данных</a>
+        </div>
+      </div>
+    </template>
+  </Modal>
+  <div v-if="!loading && spec" id="calculator">
+    <div class="container section mx-auto flex flex-col items-cetner gap-8">
+      <div class="section__title">
+        Калькулятор стоимости бассейна
+      </div>
+      <div class="flex justify-center items-center">
+        <div class="section__sub-title">
+          Ответьте на 4 вопроса и мы отправим вам смету на строительство <br> бассейна в течении 1 рабочего дня
+        </div>
+      </div>
+      <div class="flex flex-col xl:flex-row">
+        <div class="2xl:w-4/12">
+
+          <Disclosure :as="Card" class="!p-0" v-slot="{ open, close }">
+            <DisclosureButton
+              class="px-4 pt-4 flex justify-between w-full cursor-pointer"
+              @click="() => { if (!open) form.type = null }"
+            >
+              Выберите тип чаши
+              <ion-icon :class="open ? 'w-6 h-6' : 'w-6 h-6 rotate-180'" name="chevron-up-outline"></ion-icon>
+            </DisclosureButton>
+            <DisclosurePanel class="mt-2 px-4 pb-4" static>
+              <CheckBox
+                v-if="form.type"
+                :label="spec.typeItems[form.type]"
+                disabled
+                checked
+              />
+              <div v-else>
+                <div v-for="(label, key) in spec.typeItems" :key="key">
+                  <RadioInput
+                    id="typeValue"
+                    :value="key"
+                    @onChange="value => {
+                      form.type = value;
+                      if (key === 'liner') {
+                        delete form.complectation['panel']
+                        form.complectation['liner'] = spec.complectations[key]
+                      } else {
+                        delete form.complectation['liner']
+                        form.complectation['panel'] = spec.complectations[key]
+                      }
+                      form.material = null;
+                      close()
+                    }"
+                    name="type"
+                    :label="label"
+                  />
+                </div>
+              </div>
+            </DisclosurePanel>
+          </Disclosure>
+
+          <transition name="fade">
+            <Disclosure v-if="form.type === 'liner'" defaultOpen="true" :as="Card" class="!p-0" v-slot="{ open, close }">
+              <DisclosureButton class="px-4 pt-4 flex justify-between w-full cursor-pointer">
+                Выберите пленку
+                <ion-icon :class="open ? 'w-6 h-6' : 'w-6 h-6 rotate-180'" name="chevron-up-outline"></ion-icon>
+              </DisclosureButton>
+              <DisclosurePanel class="mt-2 px-4 pb-4" static>
+                <div v-if="open" class="grid grid-cols-3 gap-2">
+                  <div
+                    v-for="(item, index) in spec.materials"
+                    :key="index"
+                    class="cursor-pointer"
+                    @click="() => { form.material = item; close() }"
+                  >
+                    <img
+                      class="w-full rounded"
+                      :src="item.preview ? getLink(item.preview.id) : ''"
+                      onerror="this.src='https://via.placeholder.com/100'"
+                    />
+                  </div>
+                </div>
+                <div v-if="form.material && !open" class="h-20">
+                  <img
+                    class="w-full rounded h-full object-cover"
+                    :src="form.material.preview ? getLink(form.material.preview.id) : ''"
+                    onerror="this.src='https://via.placeholder.com/600'"
+                  />
+                </div>
+              </DisclosurePanel>
+            </Disclosure>
+          </transition>
+
+          <transition name="fade">
+            <Disclosure v-if="form.type" :as="Card" class="!p-0" v-slot="{ open, close }">
+              <DisclosureButton
+                class="px-4 pt-4 flex justify-between w-full cursor-pointer"
+                @click="() => { if (!open) form.size = null }"
+              >
+                Выберите размер
+                <ion-icon :class="open ? 'w-6 h-6' : 'w-6 h-6 rotate-180'" name="chevron-up-outline"></ion-icon>
+              </DisclosureButton>
+              <DisclosurePanel class="mt-2 px-4 pb-4" static>
+                <div v-if="form.size" class="flex flex-row justify-center items-center">
+                  <Tag class="bg-blue-500 text-white">
+                    <span v-html="form.size.label" />
+                  </Tag>
+                </div>
+                <div v-else>
+                  <div class="flex flex-row flex-wrap justify-center lx:flex-col items-center gap-2">
+                    <Tag
+                      class="cursor-pointer"
+                      v-for="(item, index) in spec.sizes"
+                      :key="index"
+                      @click="() => { form.size = item; close() }"
+                    >
+                      <span v-html="item.label" />
+                    </Tag>
+                  </div>
+                </div>
+              </DisclosurePanel>
+            </Disclosure>
+          </transition>
+
+          <Disclosure :as="Card" class="!p-0">
+            <DisclosureButton class="px-4 pt-4 cursor-default">
+              Комплектация
+            </DisclosureButton>
+            <DisclosurePanel class="mt-2 px-4 pb-4" static>
+              <CheckBox label="Система фильтрации"
+                disabled
+                :checked="form.complectation.filter"
+              />
+              <CheckBox label="LED освещение"
+                disabled
+                :checked="form.complectation.led"
+              />
+              <CheckBox label="Лестница для бассейна"
+                disabled
+                :checked="form.complectation.ladder"
+              />
+
+              <div class="my-2">
+                <div class="text-sm text-gray-500">
+                  Нагрев воды
+                </div>
+                <CheckBox
+                  label="Электронагреватель"
+                  @onChange="checked => {
+                    setComplectation('electric', checked)
+                    delete form.complectation['exchanger']
+                  }"
+                  :checked="form.complectation.electric"
+                />
+                <CheckBox
+                  label="Теплообменник"
+                  @onChange="checked => {
+                    setComplectation('exchanger', checked);
+                    delete form.complectation['electric']
+                  }"
+                  :checked="form.complectation.exchanger"
+                />
+              </div>
+
+              <CheckBox label="УФ обеззараживатель" @onChange="checked => setComplectation('disinfectant', checked)" />
+              <CheckBox label="Станция дозации"     @onChange="checked => setComplectation('dosing station', checked)" />
+              <CheckBox label="Противоток"          @onChange="checked => setComplectation('antistream', checked)" />
+              <CheckBox label="Павильон"            @onChange="checked => setComplectation('pavilion', checked)" />
+              <CheckBox label="Бордюрный камень"    @onChange="checked => setComplectation('curbstone', checked)" />
+            </DisclosurePanel>
+          </Disclosure>
+
+          <Card class="flex flex-col">
+            <div v-if="cost - totalCost > 0" class="flex flex-col">
+              <span>Скидка на оборудование</span>
+              <div class="flex gap-2">
+                <span class="text-blue-500 font-bold">{{ cost - totalCost }}</span>
+                <span>тенге</span>
+              </div>
+            </div>
+            <div v-if="totalCost" class="flex flex-col mt-2">
+              <span>Стоимость бассейна с учетом скидки</span>
+              <div class="flex gap-2">
+                <span class="text-blue-500 font-bold">{{ totalCost }}</span>
+                <span>тенге</span>
+              </div>
+              <hr class="my-2">
+            </div>
+            <div class="text-xs text-gray-400">
+              Без учета:
+              <br>
+              - Общестроительных и земляных работ,
+              <br>
+              - Подвода питающего кабеля к тех. отсеку,
+              <br>
+              - Подвода водоснабжения к тех. отсеку,
+              <br>
+              - Комплекта водоподготовки для запуска.
+            </div>
+          </Card>
+          <div class="flex justify-center mt-4">
+            <Button type="default" size="big" @click="modal.isOpen = true">
+              Оставить заявку
+            </Button>
+          </div>
+        </div>
+        <div class="2xl:w-8/12 h-full shadow-xl">
+          <img v-if="image" :src="getLink(image)"/>
+          <img v-else src="../assets/calculator_1.jpg" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import _ from 'lodash'
+import { reactive, computed } from 'vue'
+
+const isBrowser = typeof window !== 'undefined'
+if (isBrowser) {
+  const {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    RadioGroup,
+    RadioGroupLabel,
+    RadioGroupOption,
+  } = await import('@headlessui/vue')
+}
+
+import Modal from      '../../library/Modal.vue'
+import getLink from    '../../utils/assets.js'
+import Button from     '../../library/Button.vue'
+import Input from      '../../library/Input.vue'
+import RadioInput from '../../components/inputs/RadioInput.vue'
+import Radio from      '../../components/inputs/Radio.vue'
+import CheckBox from   '../../components/inputs/CheckBox.vue'
+import { Card } from       '../../library'
+import Tag from        '../../library/Tag.vue'
+import Material1 from  "../../assets/material_1.jpg";
+import Material2 from  "../../assets/material_2.jpg";
+import { useStore } from 'vuex'
+import gql from 'graphql-tag'
+
+import directus from '../../utils/directus.js'
+
+const store = useStore()
+
+const state = reactive({
+  images: []
+})
+
+const modal = reactive({
+  isOpen: false,
+  isLoading: false,
+})
+
+const form = reactive({
+  type: null,
+  material: null,
+  size: null,
+  heater: null,
+  complectation: {},
+  ladder: true,
+  name: "",
+  phone: "",
+})
+
+/* const { result, loading } = useQuery(gql` */
+/*   query getCalculator { */
+/*     calculator { */
+/*       sizes */
+/*       complectations */
+/*       sets */
+/*       skins { */
+/*         products_id { */
+/*           id */
+/*           label */
+/*           price */
+/*           tags */
+/*           preview { */
+/*             id */
+/*           } */
+/*         } */
+/*       } */
+/*     } */
+/*   }` */
+/* ) */
+
+/* const spec = useResult(result, null, data => { */
+/*   let calculator = data.calculator */
+/*   // default set */
+/*   form.complectation['filter'] = calculator.complectations['filter'] */
+/*   form.complectation['led'] = calculator.complectations['led'] */
+/*   form.complectation['ladder'] = calculator.complectations['ladder'] */
+/*   return { */
+/*     ...calculator, */
+/*     typeItems: { */
+/*       liner: "Блочно-пленочный бассейн", */
+/*       panel: "Полипропиленовый бассейн" */
+/*     }, */
+/*     materials: _.map(calculator.skins, e => e.products_id), */
+/*   } */
+/* }) */
+
+directus.files.readByQuery({ limit: -1 })
+  .then(({ data }) => state.images = data)
+
+const cost = computed(() => {
+  if (form.size && form.complectation) {
+    // Сумируем стоимость комплектуюших
+    return _.reduce(
+      form.complectation,
+      (result, { price }, key) => {
+        switch (key) {
+          case "filter":
+          case "led":
+          case "electric":
+          case "exchanger":
+          case "disinfectant":
+          case "dosing station":
+          case "antistream":
+            return result + (parseInt(price) * parseInt(form.size.V))
+          case "curbstone":
+          case "pavilion":
+            return result + (parseInt(price) * parseInt(form.size.P))
+          case "panel":
+            return result + (parseInt(price) * parseInt(form.size.S))
+          case "liner":
+            if (form.material) {
+              return result + (form.material.price * parseInt(form.size.S))
+            }
+          case "ladder":
+            return result + parseInt(price)
+        }
+      },
+      0
+    )
+  }
+})
+
+const discount = computed(() => {
+  let discount = 0
+  let tags = new Set(_.keys(form.complectation))
+  _.map(spec.value.sets, e => {
+    if (_.isEqual(tags, new Set(e.tags))) {
+      discount = e.discount
+    }
+  })
+  return parseFloat(discount)
+})
+
+const totalCost = computed(() => cost.value - (cost.value * discount.value / 100))
+
+const image = computed(() => {
+  let image = null
+  let tags = new Set(_.keys(form.complectation))
+  tags.delete("pavilion")
+  tags.delete("antistream")
+  if (form.material) {
+    tags.add(form.material.tags[0])
+    tags.delete("liner")
+  }
+  _.map(state.images, e => {
+    if (_.isEqual(tags, new Set(e.tags))) {
+      return image = e.id
+    }
+  })
+  return image
+})
+
+function setComplectation(key, value) {
+  if (value) {
+    form.complectation[key] = spec.value.complectations[key]
+  } else {
+    delete form.complectation[key]
+  }
+}
+
+function setHeater(key, value) {
+  if (value) {
+    form.heater = spec.value.complectations[key]
+  } else {
+    form.heater = null
+  }
+}
+
+function sendRequest() {
+  const complectations = _.reduce(
+    form.complectation,
+    (result, value, key) => {
+      if (value) {
+        return _.concat(result, spec.value.complectations[key].label)
+      }
+    },
+    []
+  )
+  const data = {
+    name: form.name,
+    phone: form.phone,
+    content: `
+      Заявка на бассейн:
+      ${cost.value ? "Цена: " + cost.value : ""}
+      ${discount.value ? "Скидка: " + discount.value : ""}
+      ${totalCost.value ? "Со скидкой: " + totalCost.value : ""}
+      ${form.type
+        ? "Тип: " + spec.value.typeItems[form.type]
+        : ""
+      }
+      ${form.material
+        ? "Материал: " + form.material.label
+        : ""
+      }
+      ${form.size
+        ? "Размер: " + form.size.label
+        : ""
+      }
+      ${complectations
+        ? "Комплектация: " + _.join(complectations, ', ')
+        : ""
+      }
+      ${complectations
+        ? "Комплектация: " + _.join(complectations, ', ')
+        : ""
+      }
+    `
+  }
+  store.dispatch('clientRequests/send', data)
+    .finally(() => {
+      modal.isLoading = false
+      modal.isOpen = false
+    })
+}
+</script>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
