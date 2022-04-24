@@ -58,7 +58,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -77,6 +78,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  sitemap: {
+    hostname: `https://${process.env.DOMAIN}`,
+    gzip: true,
+    routes: [
+      '/search',
+    ],
   },
 
   tailwindcss: {
