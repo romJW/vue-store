@@ -181,14 +181,14 @@
             <div v-if="cost - totalCost > 0" class="flex flex-col mb-2">
               <span>Скидка на оборудование</span>
               <div class="flex gap-2">
-                <span class="text-blue-500 font-bold">{{ cost - totalCost }}</span>
+                <span class="text-blue-500 font-bold">{{ Math.floor(cost - totalCost) }}</span>
                 <span>тенге</span>
               </div>
             </div>
             <div v-if="totalCost" class="flex flex-col">
               <span>Стоимость бассейна с учетом скидки</span>
               <div class="flex gap-2">
-                <span class="text-blue-500 font-bold">{{ totalCost }}</span>
+                <span class="text-blue-500 font-bold">{{ Math.floor(totalCost) }}</span>
                 <span>тенге</span>
               </div>
               <hr class="my-2">
