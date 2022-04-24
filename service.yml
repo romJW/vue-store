@@ -1,0 +1,34 @@
+version: "3"
+
+networks:
+  # Use the previously created public network "traefik-public", shared with other
+  # services that need to be publicly available via this Traefik
+  traefik-public:
+    external: true
+
+services:
+  ecom-client:
+    image: registry.gitlab.com/croxware/ecom.client/abbex.kz:1.11
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+
+        - traefik.http.routers.ecom-client-http.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.ecom-client-http.entrypoints=http
+        - traefik.http.routers.ecom-client-http.middlewares=https-redirect
+
+        - traefik.http.routers.ecom-client-https.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.ecom-client-https.entrypoints=https
+
+        - traefik.http.routers.ecom-client-https.tls=true
+        - traefik.http.routers.ecom-client-https.tls.certresolver=acme_resolver
+
+        - traefik.http.services.ecom-client.loadbalancer.server.port=8000
+    environment:
+      - DIRECTUS_URL=${DIRECTUS_URL?Variable not set}
+    networks:
+      # use the public network created to be shared between traefik and
+      # any other service that needs to be publicly available with https
+      - traefik-public
