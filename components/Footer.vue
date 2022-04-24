@@ -75,24 +75,24 @@
               Каталог
             </p>
             <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-              <a class="hover:opacity-75" href="/#polypropylene-pools">
+              <nuxt-link class="hover:opacity-75" to="/#polypropylene-pools">
                 Полипропиленовый бассейн
-              </a>
-              <a class="hover:opacity-75" href="/#block-pellicle-pools">
+              </nuxt-link>
+              <nuxt-link class="hover:opacity-75" to="/#block-pellicle-pools">
                 Блочно-пленочные бассейны
-              </a>
-              <a class="hover:opacity-75" href="/#pavilions">
+              </nuxt-link>
+              <nuxt-link class="hover:opacity-75" to="/#pavilions">
                 Павильоны для бассейнов
-              </a>
-              <a class="hover:opacity-75" href="">
+              </nuxt-link>
+              <nuxt-link class="hover:opacity-75" to="/search">
                 Оборудование для бассейнов
-              </a>
-              <a class="hover:opacity-75" href="">
+              </nuxt-link>
+              <nuxt-link class="hover:opacity-75" to="/catalog/spa">
                SPA и сауны
-              </a>
-              <a class="hover:opacity-75" href="">
+              </nuxt-link>
+              <nuxt-link class="hover:opacity-75" to="/catalog/terraces">
                 Все для террас
-              </a>
+              </nuxt-link>
               <div class="w-2/3">
                 <PriceListButton />
               </div>
