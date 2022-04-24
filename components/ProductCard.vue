@@ -14,7 +14,7 @@
     </div>
     <div class="px-5 pb-5 w-full mt-auto">
       <div class="mt-2.5"></div>
-      <div class="flex flex-col md:flex-row justify-between md:tems-center">
+      <div class="flex flex-col md:flex-row justify-between md:items-center">
         <span class="text-xl font-bold text-gray-900">
           {{ product.price }} тенге
         </span>
