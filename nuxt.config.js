@@ -71,10 +71,10 @@ export default {
   },
 
   proxy: {
-    '/items/': {
+    '/directus': {
       target: process.env.DIRECTUS_URL,
-      // pathRewrite: { '^/directus/': '' }
-    }
+      pathRewrite: { '^/directus': '' }
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
