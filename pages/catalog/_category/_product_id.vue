@@ -92,7 +92,6 @@ import gql from 'graphql-tag'
 
 import Loading from '@/library/Loading.vue'
 import PageBanner from '@/components/PageBanner.vue'
-import ArrowIcon from '@/components/icons/Arrow.vue'
 
 import prepareProduct from '@/utils/products.js'
 
@@ -102,7 +101,6 @@ export default {
   components: {
     PageBanner,
     Loading,
-    ArrowIcon,
   },
   apollo: {
     product: {

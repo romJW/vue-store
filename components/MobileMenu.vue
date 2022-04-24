@@ -15,7 +15,7 @@
       <hr>
       <span class="flex justify-center items-center" @click="() => expanded == 'equipment' ? expanded = null : expanded = 'equipment'">
         Оборудование для бассейнов
-        <ion-icon :class="expanded == 'spa' ? 'w-8 h-8' : 'w-8 h-8 rotate-180'" name="chevron-up-outline"></ion-icon>
+        <span :class="{ 'rotate-180': expanded === 'equipment' }" class="material-icons">keyboard_arrow_up</span>
       </span>
       <div v-if="expanded == 'equipment'" class="flex flex-col gap-4 p-2">
         <span @click="navigate('/catalog/plenka')">
@@ -55,7 +55,7 @@
       <hr>
       <span class="flex justify-center items-center" @click="() => expanded == 'spa' ? expanded = null : expanded = 'spa'">
         SPA и сауны
-        <ion-icon :class="expanded == 'spa' ? 'w-8 h-8' : 'w-8 h-8 rotate-180'" name="chevron-up-outline"></ion-icon>
+        <span :class="{ 'rotate-180': expanded === 'spa' }" class="material-icons">keyboard_arrow_up</span>
       </span>
       <div v-if="expanded == 'spa'" class="flex flex-col gap-4 p-2">
         <span @click="navigate('/catalog/spa')">

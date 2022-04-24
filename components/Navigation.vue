@@ -8,7 +8,7 @@
           </nuxt-link>
           <a class="text-white flex items-center" v-if="item.children" href="#" aria-haspopup="true">
             {{ item.title }}
-            <ArrowIcon class="h-6 w-6" />
+            <span class="material-icons">keyboard_arrow_down</span>
           </a>
         </div>
         <ul v-if="item.children" class="dropdown" aria-label="submenu">
@@ -27,12 +27,7 @@
 </template>
 
 <script>
-import ArrowIcon from './icons/Arrow.vue'
-
 export default {
-  components: {
-    ArrowIcon,
-  },
   props: ["items"]
 }
 </script>

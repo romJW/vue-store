@@ -58,7 +58,6 @@ import InstagramLogoIcon from './icons/InstagramLogo.vue'
 import OkLogoIcon from './icons/OkLogo.vue'
 import WhatsappLogoIcon from './icons/WhatsappLogo.vue'
 import VkLogoIcon from './icons/VkLogo.vue'
-import ArrowDownIcon from './icons/ArrowDown.vue'
 import Navigation from './Navigation.vue'
 import Input from '../library/Input.vue'
 import SearchInput from './SearchInput.vue'
@@ -90,7 +89,6 @@ export default {
     OkLogoIcon,
     WhatsappLogoIcon,
     VkLogoIcon,
-    ArrowDownIcon,
     Navigation,
     Input,
   },
