@@ -1,6 +1,6 @@
 <template>
   <header class="shadow w-screen 2xl:w-full flex flex-col justify-center fixed 2xl:sticky bg-white z-10">
-    <div id="header__container" class="mx-auto flex flex-row items-center justify-between px-6 py-4 w-full gap-10 2xl:w-10/12">
+    <div id="header__container" class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10">
       <a href="/">
         <img src="../assets/abbex_logo.jpg" />
       </a>
@@ -12,7 +12,7 @@
       <div class="hidden lg:block h-12 grow">
         <SearchInput />
       </div>
-      <div class="hidden 2xl:flex h-12">
+      <div class="hidden 3xl:flex h-12">
         <PriceListButton/>
       </div>
       <div class="hidden 2xl:block">
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div id="header__menu" class="hidden 2xl:flex bg-gray-800">
-      <div class="2xl:w-10/12 mx-auto flex">
+      <div class="container mx-auto flex">
         <Navigation :items="items" class="grow" />
       </div>
     </div>
