@@ -8,8 +8,8 @@
     <div class="breadcrumb-container">
       <div class="flex justify-between text-white px-4 2xl:px-20 py-2 container mx-auto">
         <Breadcrumb class="hidden md:inline-flex" :items="routes" />
-        <router-link to="/cart" class="flex ml-auto items-center cursor-pointer text-white">
-          <ion-icon class="w-4 h-4 mr-2" name="cart-outline"></ion-icon>
+        <router-link to="/cart" class="flex ml-auto items-center cursor-pointer text-gray-400 hover:text-white">
+          <span class="material-icons mr-2" >shopping_cart</span>
           Корзина
           ({{ $store.getters['cart/length'] }})
         </router-link>
@@ -19,11 +19,13 @@
 </template>
 
 <script>
-import ArrowIcon from './icons/Arrow.vue'
-import Breadcrumb from './cw/Breadcrumb.vue'
+import Breadcrumb from '@/library/Breadcrumb.vue'
 
 export default {
-  props: ['title', 'routes']
+  props: ['title', 'routes'],
+  components: {
+    Breadcrumb
+  }
 }
 </script>
 

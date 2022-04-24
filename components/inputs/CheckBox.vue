@@ -4,11 +4,11 @@
       class="text-blue-500 disabled:text-blue-400 cursor-pointer disabled:cursor-default"
       :checked="checked"
       type="checkbox"
-      :id="index + value"
+      :id="value"
       :value="value"
       :disabled="disabled"
       @change="onChange" />
-    <label :for="index + value">{{ label }}</label>
+    <label :for="value">{{ label }}</label>
   </div>
 </template>
 

@@ -1,15 +1,8 @@
 <template>
-  <Card class="collapsable flex flex-col !p-0">
-    <div class="flex justify-between p-4 cursor-pointer" @click="toggle">
-      <slot name="header" :isOpen="isOpen"></slot>
-      <ion-icon :class="isOpen ? '' : 'rotate-180'" name="chevron-up-outline"></ion-icon>
-    </div>
-    <slot
-      name="body"
-      :isOpen="isOpen"
-      :toggle="toggle"
-      classes="px-4 pb-4"
-    />
+  <Card class="disclosure flex flex-col">
+    <slot name="header" :open="open" :toggle="toggle" />
+    <slot name="open" v-if="open" :toggle="toggle" />
+    <slot name="close" v-else :toggle="toggle" />
   </Card>
 </template>
 
@@ -17,20 +10,23 @@
 import Card from './Card.vue'
 
 export default {
+  props: ['defaultOpen'],
   components: {
     Card,
   },
-  props: ['isOpen'],
+  data() {
+    return {
+      open: false
+    }
+  },
+  mounted() {
+    this.open = Boolean(this.$props.defaultOpen)
+  },
   methods: {
     toggle () {
-      this.$emit("onToggle")
-      if (this.isOpen) {
-        this.$emit("onClose")
-      } else {
-        this.$emit("onOpen")
-      }
-    }
-  }
+      this.open = !this.open
+    },
+  },
 }
 </script>
 

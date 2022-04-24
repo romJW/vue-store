@@ -1,3 +1,3 @@
 import { Directus } from '@directus/sdk';
 
-export default new Directus(process.env.VITE_DIRECTUS_URL);
+export default new Directus(process.env.DIRECTUS_URL);

@@ -1,5 +1,5 @@
 <template>
-  <Loading v-if="loading" />
+  <Loading v-if="$apollo.loading" />
   <div v-else>
     <PageBanner
       title="Поиск"
@@ -25,10 +25,10 @@
 import _ from 'lodash'
 import gql from 'graphql-tag'
 
-import PageBanner from '../components/PageBanner.vue'
-import Loading from '../library/Loading.vue'
-import ProductCard from '../components/ProductCard.vue'
-import prepareProduct from '../utils/products.js'
+import PageBanner from '@/components/PageBanner.vue'
+import Loading from '@/library/Loading.vue'
+import ProductCard from '@/components/ProductCard.vue'
+import prepareProduct from '@/utils/products.js'
 
 export default {
   components: {
@@ -65,7 +65,7 @@ export default {
   },
   computed: {
     breadcrumbs() {
-      return [{ label: route.params.input, path: route.path }]
+      return [{ label: this.$route.params.input, path: this.$route.path }]
     }
   },
   methods: {

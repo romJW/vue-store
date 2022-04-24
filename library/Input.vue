@@ -61,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+input {
+  outline: none;
+  border: none;
+}
 input:focus {
   box-shadow: none;
 }

@@ -24,10 +24,13 @@
 </template>
 
 <script>
-import Button from '../../library/Button.vue'
-import Input from '../../library/Input.vue'
+import { Button, Input } from '@/library'
 
 export default {
+  components: {
+    Button,
+    Input,
+  },
   data() {
     return {
       form: {
@@ -38,13 +41,13 @@ export default {
   },
   methods: {
     sendRequest () {
-      this.$store.dispatch('clientRequests/send', form)
+      this.$store.dispatch('clientRequests/send', this.form)
         .then(() => {
-          this.$toasts.base('С вами свяжуться в ближайшее время!')
+          this.$notify('С вами свяжуться в ближайшее время!')
         })
         .finally(() => {
-          form.name = ""
-          form.phone = ""
+          this.form.name = ""
+          this.form.phone = ""
         })
     }
   }

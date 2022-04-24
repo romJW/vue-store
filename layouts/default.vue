@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Vendor />
-    <MobileMenu class="mt-[100px] 2xl:mt-0" v-if="isMobileMenuOpen" />
-    <div class="mt-[100px] 2xl:mt-0" v-else>
+    <notifications position="top right"/>
+    <Vendor class="z-50" />
+    <MobileMenu class="pt-[100px] 2xl:pt-0" v-if="isMobileMenuOpen" />
+    <div class="pt-[100px] 2xl:pt-0" v-else>
       <Nuxt />
       <Footer />
       <a

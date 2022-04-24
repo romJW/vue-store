@@ -3,9 +3,9 @@
     <ul class="divide-x-2 divide-gray-600 flex">
       <li class="navigation__item grow" v-for="item in items" :key="item.title">
         <div class="flex h-full font-bold text-center justify-center items-center">
-          <a class="text-white" v-if="item.children == null" :href="item.path">
+          <nuxt-link class="text-white" v-if="item.children == null" :to="item.path">
             {{ item.title }}
-          </a>
+          </nuxt-link>
           <a class="text-white flex items-center" v-if="item.children" href="#" aria-haspopup="true">
             {{ item.title }}
             <ArrowIcon class="h-6 w-6" />
@@ -13,12 +13,12 @@
         </div>
         <ul v-if="item.children" class="dropdown" aria-label="submenu">
           <li class="navigation__item__dropdown-item" v-for="(child, index) in item.children" :key="index">
-            <a v-for="link in child" :key="link.title" :href="link.path">
+            <nuxt-link v-for="link in child" :key="link.title" :to="link.path">
               <div class="flex flex-col justify-center items-center">
                 <img class="w-20" :src="link.image" />
                 {{ link.title }}
               </div>
-            </a>
+            </nuxt-link>
           </li>
         </ul>
       </li>

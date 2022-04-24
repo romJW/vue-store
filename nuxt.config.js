@@ -1,6 +1,11 @@
 process.env.DEBUG = 'nuxt:*'
 
 export default {
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+    timing: false
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'ecom.client',
@@ -15,10 +20,15 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
     ],
     script: [
       { src: 'https://unpkg.com/ionicons@5.0.0/dist/ionicons.js' },
     ]
+  },
+
+  env: {
+    DIRECTUS_URL: process.env.DIRECTUS_URL,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,8 +37,11 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/carousel.js',
     '@/plugins/viewer.js',
+    '@/plugins/modal.js',
+    { src: '@/plugins/notification-ssr.js', ssr: true },
+    { src: '@/plugins/notification.js', ssr: false },
+    '@/plugins/axios.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,17 +65,42 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+    proxy: true // Can be also an object with default options
+  },
+
+  proxy: {
+    '/items/': {
+      target: process.env.DIRECTUS_URL,
+      // pathRewrite: { '^/directus/': '' }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
+  tailwindcss: {
+    // Options
+    configPath: 'tailwind.config.js',
+  },
+
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.VITE_DIRECTUS_URL,
+        httpEndpoint: `${process.env.DIRECTUS_URL}/graphql`,
       }
+    }
+  },
+
+  router: {
+    scrollBehavior(to) {
+      if (to.hash) {
+        return window.scrollTo({
+          top: document.querySelector(to.hash).offsetTop + window.innerHeight,
+          behavior: 'smooth'
+        })
+      }
+      return window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   },
 }

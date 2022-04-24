@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import getLink from '../utils/assets.js'
+import getLink from './assets.js'
 
 export default function prepare(product) {
   let item = _.cloneDeep(product);

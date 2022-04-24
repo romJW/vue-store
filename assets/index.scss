@@ -28,10 +28,6 @@ a {
   @apply p-8;
 }
 
-.tag {
-  @apply shadow-md border rounded-md p-1 px-3 w-max text-xs;
-}
-
 .section__title {
   @apply font-bold;
   @apply text-2xl md:text-4xl text-center;
