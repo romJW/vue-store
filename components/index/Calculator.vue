@@ -335,6 +335,8 @@ export default {
     discount() {
       // HACK: to trigger computation on size change
       this.form.size
+      // HACK: to trigger computation on complectation change
+      this.complectation
       let discount = 0
       let tags = new Set(_.keys(this.complectation))
       _.map(this.spec.sets, e => {
@@ -342,6 +344,7 @@ export default {
           discount = e.discount
         }
       })
+      console.log(discount)
       return parseFloat(discount)
     },
     totalCost() {

@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import Hero               from './index/Hero.vue'
-import Features           from './index/Features.vue'
-import BlockPelliclePools from './index/BlockPelliclePools.vue'
-import DesignerCall       from './index/DesignerCall.vue'
-import PolypropylenePools from './index/PolypropylenePools.vue'
-import Calculator          from './index/Calculator.vue'
-import Pavilions          from './index/Pavilions.vue'
-import YouTubeChannel     from './index/YouTubeChannel.vue'
-import Map                from './index/Map.vue'
+import Hero               from '@/components/index/Hero.vue'
+import Features           from '@/components/index/Features.vue'
+import BlockPelliclePools from '@/components/index/BlockPelliclePools.vue'
+import DesignerCall       from '@/components/index/DesignerCall.vue'
+import PolypropylenePools from '@/components/index/PolypropylenePools.vue'
+import Calculator         from '@/components/index/Calculator.vue'
+import Pavilions          from '@/components/index/Pavilions.vue'
+import YouTubeChannel     from '@/components/index/YouTubeChannel.vue'
+import Map                from '@/components/index/Map.vue'
 
 export default {
   components: {
