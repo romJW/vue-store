@@ -1,9 +1,9 @@
 <template>
   <header class="shadow w-screen 2xl:w-full flex flex-col justify-center fixed 2xl:sticky bg-white z-10">
     <div id="header__container" class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10">
-      <a href="/">
+      <nuxt-link to="/">
         <img src="../assets/abbex_logo.jpg" />
-      </a>
+      </nuxt-link>
       <div class="hidden 2xl:block w-1/6 text-center">
         <span class="text-gray-500">
           Строительство бассейнов в Казахстане “под ключ”
