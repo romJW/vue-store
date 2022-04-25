@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center min-h-full">
+  <div class="flex justify-center items-center min-h-[600px]">
     <Spinner size="lg" />
   </div>
 </template>
