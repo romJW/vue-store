@@ -344,7 +344,6 @@ export default {
           discount = e.discount
         }
       })
-      console.log(discount)
       return parseFloat(discount)
     },
     totalCost() {

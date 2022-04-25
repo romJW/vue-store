@@ -127,9 +127,7 @@ export default {
         }
       },
       update: data => {
-        console.log(data)
         const product = prepareProduct(_.head(data.products))
-        console.log(product)
         return {
           ...product,
           images: _.map(product.images, e => e.directus_files_id.id),
