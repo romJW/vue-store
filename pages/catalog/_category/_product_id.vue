@@ -127,10 +127,12 @@ export default {
         }
       },
       update: data => {
+        console.log(data)
         const product = prepareProduct(_.head(data.products))
+        console.log(product)
         return {
           ...product,
-          images: _.map(e => _.get(e, "directus_files_id.id"), product.images),
+          images: _.map(product.images, e => e.directus_files_id.id),
           description: md.render(product.description),
           deal_info: md.render(data.settings.deal_info),
         }
