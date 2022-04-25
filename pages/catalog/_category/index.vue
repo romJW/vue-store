@@ -6,10 +6,10 @@
       :routes="breadcrumbs"
     />
     <div class="container mx-auto flex flex-col p-8 gap-8">
-      <div class="grid grid-cols-1 2xl:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
         <ProductCard
           class="!p-0 rounded-[0]"
-          v-for="(item, index) in products"
+          v-for="(item, index) in category.products"
           :key="index"
           :product="item"
         />
@@ -72,17 +72,13 @@ export default {
       update({ categories_by_id }) {
         return {
           ...categories_by_id,
+          products: _.map(categories_by_id.products, prepareProduct),
           content: md.render(categories_by_id.content)
         }
       }
     },
   },
   computed: {
-    products() {
-      if (this.category.products) {
-        return  _.map(this.category.products, prepareProduct)
-      }
-    },
     breadcrumbs() {
       if (this.category) {
         return [{ label: this.category.label, path: this.$route.path }]
