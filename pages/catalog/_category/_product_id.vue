@@ -9,19 +9,9 @@
       <section class="section">
         <div class="container lg:px-0 mx-auto">
           <div class="mx-auto flex flex-wrap">
-            <div class="lg:w-1/2 lg:h-auto w-full" v-viewer>
-              <!--
-              <Flicking
-                :modules="modules"
-                :slides-per-view="1"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
-                :pagination="{ clickable: true, type: 'bullets', }"
-              >
-                <img v-if="image" :src="image.directus_files_id.id" class="w-full rounded">
-                <img v-else src="https://via.placeholder.com/600" class="w-full rounded">
-              </Flicking>
-              -->
+            <div class="lg:w-1/2 lg:h-auto w-full" >
+              <Swiper v-if="product.images.length" :items="product.images" v-viewer />
+              <img v-else :src="product.preview.id" class="rounded" v-viewer />
             </div>
             <div class="lg:w-1/2 w-full lg:pl-10 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">Название модели</h2>
@@ -140,6 +130,7 @@ export default {
         const product = prepareProduct(_.head(data.products))
         return {
           ...product,
+          images: _.map(e => _.get(e, "directus_files_id.id"), product.images),
           description: md.render(product.description),
           deal_info: md.render(data.settings.deal_info),
         }
@@ -156,7 +147,7 @@ export default {
           { label: this.product.name, path: this.$route.path }
         ]
       }
-    }
+    },
   },
   methods: {
     addToCart() {
