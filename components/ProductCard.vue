@@ -1,12 +1,13 @@
 <template>
   <Card class="flex flex-col">
-    <img
-      class="cursor-pointer w-full"
-      @click="navigate(`/${product.id}`)"
-      :src="product.preview.id"
-      alt="product image"
-      onerror="this.src='https://via.placeholder.com/100'"
-    />
+    <nuxt-link :to="href">
+      <img
+        class="cursor-pointer w-full"
+        :src="product.preview.id"
+        alt="product image"
+        onerror="this.src='https://via.placeholder.com/100'"
+      />
+    </nuxt-link>
     <div class="px-5 pt-5">
       <h5 class="text-xl font-semibold tracking-tight text-gray-900">
         {{ product.name }}
@@ -36,6 +37,11 @@ export default {
     Card,
     Loading,
   },
+  computed: {
+    href() {
+      return `/catalog/${this.$props.product.category.id}/${this.$props.product.id}`
+    }
+  },
   methods: {
     addToCart () {
       this.$store.commit('cart/add', this.$props.product)
@@ -43,9 +49,6 @@ export default {
     removeFromCart () {
       this.$store.commit('cart/remove', this.$props.product.id)
     },
-    navigate() {
-      this.$router.push(`/catalog/${this.$props.product.category.id}/${this.$props.product.id}`)
-    }
   }
 }
 </script>
