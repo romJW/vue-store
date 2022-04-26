@@ -1,7 +1,7 @@
 <template>
   <Loading v-if="loading" />
   <div v-else class="container mx-auto flex justify-center">
-    <div class="prose max-w-none w-full" v-html="page.content" />
+    <div class="prose max-w-none w-[60vw]" v-html="page.content" />
   </div>
 </template>
 
@@ -18,8 +18,22 @@ export default {
       page: null
     }
   },
+  head() {
+    if (this.page) {
+      return {
+        title: this.page.seo_title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.page.seo_description,
+          }
+        ]
+      }
+    }
+  },
   mounted() {
-    this.$axios.get(`/items/static_pages/${this.$route.params.url}`)
+    this.$axios.get(`/directus/items/static_pages/${this.$route.params.url}`)
       .then(data => {
         this.page = data.data.data
       })

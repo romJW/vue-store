@@ -137,6 +137,20 @@ export default {
       },
     },
   },
+  head() {
+    if (this.product) {
+      return {
+        title: this.product.seo_title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.product.seo_description,
+          }
+        ]
+      }
+    }
+  },
   computed: {
     breadcrumbs () {
       if (this.product) {
