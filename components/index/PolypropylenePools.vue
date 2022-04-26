@@ -58,8 +58,8 @@
         </div>
       </div>
       <div class="grow absolute flex z-0 top-0 w-full h-full">
-        <img class="grow hidden 2xl:block" src="../../assets/block_5_1.jpg" />
-        <img class="grow hidden 2xl:block" src="../../assets/block_5_2.jpg" />
+        <img class="grow hidden 2xl:block 2xl:w-5/12 object-cover" src="../../assets/block_5_1.jpg" />
+        <img class="grow hidden 2xl:block 2xl:w-7/12 object-cover" src="../../assets/block_5_2.jpg" />
       </div>
     </div>
   </div>
