@@ -7,6 +7,7 @@ Vue.use(VModal, {
   dynamicDefaults: {
     draggable: false,
     resizable: false,
-    height: 'auto'
+    height: 'auto',
+    adaptive: true,
   }
 })
