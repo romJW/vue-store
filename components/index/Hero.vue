@@ -11,7 +11,7 @@
           Строительство бассейнов <br class="inline md:hidden lg:inline"> “под ключ” <br> по Алматы и Казахстану
         </h2>
         <div class="flex flex-col lg:flex-row justify-center gap-4">
-          <Button type="default" @click="modal.isOpen = true" class="lg:w-1/2">
+          <Button type="default" @click="showSubmiteOrderModal" class="lg:w-1/2">
             Оставить заявку
           </Button>
           <Button @click="$router.push('/#calculator')" type="alternative" class="lg:w-1/2">
