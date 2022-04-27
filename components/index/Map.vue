@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <Card class="hidden md:flex flex-col absolute z-10 bg-white justify-center p-4 2xl:p-10 gap-4 top-10 left-10 2xl:left-80">
+    <Card class="!hidden md:!flex flex-col absolute z-10 bg-white justify-center p-4 2xl:p-10 gap-4 top-10 left-10 2xl:left-80">
       <div>
         <span class="font-bold 2xl:text-3xl">Контакты</span>
       </div>
@@ -20,7 +20,7 @@
         </span>
       </div>
     </Card>
-    <div class="md:hidden flex flex-col justify-center  p-4 gap-4">
+    <div class="md:hidden flex flex-col justify-center p-4 gap-4">
       <div>
         <span class="font-bold text-xl">Контакты</span>
       </div>
