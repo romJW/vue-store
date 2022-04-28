@@ -66,8 +66,10 @@
         </span>
       </div>
       <hr>
-      <span @click="navigate('/catalog/terraces')">
-        Все для террас
+      <span>
+        <a class="text-black" href="http://dpksklad.kz/">
+          Все для террас
+        </a>
       </span>
       <hr>
       <span @click="navigate('/page/portfolio')">

@@ -12,15 +12,15 @@
       <div class="hidden lg:block h-12 grow">
         <SearchInput />
       </div>
-      <div class="hidden 3xl:flex h-12">
+      <div class="hidden lg:flex h-12">
         <PriceListButton/>
       </div>
-      <div class="hidden 2xl:block">
+      <div class="hidden lg:block">
         <a href="tel:+7 (771) 741-18-22">+7 (771) 741-18-22</a>
         <br>
         <a href="tel:+7 (771) 741-18-44">+7 (771) 741-18-44</a>
       </div>
-      <div class="hidden 2xl:flex flex-col items-center justify-center">
+      <div class="hidden lg:flex flex-col items-center justify-center">
         <a href="mailto:info@abbex.kz">info@abbex.kz</a>
         <div class="flex gap-2">
           <a href="https://vk.com/abbex">
@@ -35,13 +35,13 @@
           <OkLogoIcon color="#4267B2" />
         </div>
       </div>
-      <div class="flex items-center 2xl:hidden" @click="toggleMobileMenu">
+      <div class="flex items-center lg:hidden" @click="toggleMobileMenu">
         <span class="flex items-center mr-2">Меню</span>
         <MenuIcon v-if="!isMobileMenuOpen" class="menu-icon" color="#4267B2" />
         <CloseIcon v-else class="menu-icon" color="#4267B2" />
       </div>
     </div>
-    <div id="header__menu" class="hidden 2xl:flex bg-gray-800">
+    <div id="header__menu" class="hidden lg:flex bg-gray-800">
       <div class="container mx-auto flex">
         <Navigation :items="items" class="grow" />
       </div>
@@ -207,7 +207,8 @@ export default {
         },
         {
           title: "Все для террас",
-          path: "/catalog/terraces",
+          path: "http://dpksklad.kz/",
+          external: true
         },
         {
           title: "Портфолио",

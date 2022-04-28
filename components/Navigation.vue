@@ -3,7 +3,10 @@
     <ul class="divide-x-2 divide-gray-600 flex">
       <li class="navigation__item grow" v-for="item in items" :key="item.title">
         <div class="flex h-full font-bold text-center justify-center items-center">
-          <nuxt-link class="text-white" v-if="item.children == null" :to="item.path">
+          <a class="text-white" v-if="item.children == null && item.external" :href="item.path">
+            {{ item.title }}
+          </a>
+          <nuxt-link class="text-white" v-if="item.children == null && !item.external" :to="item.path">
             {{ item.title }}
           </nuxt-link>
           <a class="text-white flex items-center" v-if="item.children" href="#" aria-haspopup="true">

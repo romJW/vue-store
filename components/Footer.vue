@@ -90,9 +90,9 @@
               <nuxt-link class="hover:opacity-75" to="/catalog/spa">
                SPA и сауны
               </nuxt-link>
-              <nuxt-link class="hover:opacity-75" to="/catalog/terraces">
+              <a class="hover:opacity-75" href="http://dpksklad.kz/">
                 Все для террас
-              </nuxt-link>
+              </a>
               <div class="w-2/3">
                 <PriceListButton />
               </div>
