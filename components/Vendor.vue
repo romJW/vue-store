@@ -192,13 +192,13 @@ export default {
                 image: Menu6,
               },
             ],
-            [
-              {
-                title: "Полипропиленовые листы",
-                path: "/catalog/polypropylene",
-                image: Menu13,
-              },
-            ],
+            /* [ */
+            /*   { */
+            /*     title: "Полипропиленовые листы", */
+            /*     path: "/catalog/polypropylene", */
+            /*     image: Menu13, */
+            /*   }, */
+            /* ], */
           ]
         },
         {
