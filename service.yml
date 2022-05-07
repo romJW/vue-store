@@ -8,7 +8,7 @@ networks:
 
 services:
   ecom-client:
-    image: registry.gitlab.com/croxware/ecom.client/abbex.kz:1.11
+    image: registry.gitlab.com/croxware/ecom.client:abbex.1.18
     deploy:
       labels:
         - traefik.enable=true
