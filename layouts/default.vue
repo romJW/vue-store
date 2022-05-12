@@ -2,7 +2,7 @@
   <div>
     <notifications position="top right" />
     <Vendor class="z-50 min-h-[100px]" />
-    <MobileMenu class="pt-[100px] 2xl:pt-0" v-if="isMobileMenuOpen" />
+    <MobileMenu class="pt-[120px] 2xl:pt-0" v-if="isMobileMenuOpen" />
     <div class="pt-[100px] 2xl:pt-0" v-else>
       <Nuxt />
       <Footer />
