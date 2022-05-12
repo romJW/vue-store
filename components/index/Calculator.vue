@@ -181,14 +181,14 @@
             <div v-if="cost - totalCost > 0" class="flex flex-col mb-2">
               <span>Скидка на оборудование</span>
               <div class="flex gap-2">
-                <span class="text-blue-500 font-bold">{{ Math.floor(cost - totalCost) }}</span>
+                <span class="text-blue-500 font-bold">{{ tweenedTotalDiscount.toFixed(0) }}</span>
                 <span>тенге</span>
               </div>
             </div>
             <div v-if="totalCost" class="flex flex-col">
               <span>Стоимость бассейна с учетом скидки</span>
               <div class="flex gap-2">
-                <span class="text-blue-500 font-bold">{{ Math.floor(totalCost) }}</span>
+                <span class="text-blue-500 font-bold">{{ tweenedTotalCost.toFixed(0) }}</span>
                 <span>тенге</span>
               </div>
               <hr class="my-2">
@@ -221,6 +221,7 @@
 </template>
 
 <script>
+import gsap from 'gsap'
 import _ from 'lodash'
 
 import getLink from    '@/utils/assets.js'
@@ -243,6 +244,8 @@ export default {
     return {
       getLink,
       images: [],
+      tweenedTotalCost: 0,
+      tweenedTotalDiscount: 0,
       complectation: {},
       form: {
         type: null,
@@ -299,6 +302,14 @@ export default {
         this.images = data
       })
   },
+  watch: {
+    totalCost(value) {
+      gsap.to(this, { duration: 0.5, tweenedTotalCost: value || 0 })
+    },
+    totalDiscount(value) {
+      gsap.to(this, { duration: 0.5, tweenedTotalDiscount: value || 0 })
+    },
+  },
   computed: {
     cost() {
       if (this.form.size && this.complectation) {
@@ -333,21 +344,26 @@ export default {
       }
     },
     discount() {
-      // HACK: to trigger computation on size change
-      this.form.size
-      // HACK: to trigger computation on complectation change
-      this.complectation
-      let discount = 0
-      let tags = new Set(_.keys(this.complectation))
-      _.map(this.spec.sets, e => {
-        if (_.isEqual(tags, new Set(e.tags))) {
-          discount = e.discount
-        }
-      })
-      return parseFloat(discount)
+      if (this.spec) {
+        // HACK: to trigger computation on size change
+        this.form.size
+        // HACK: to trigger computation on complectation change
+        this.complectation
+        let discount = 0
+        let tags = new Set(_.keys(this.complectation))
+        _.map(this.spec.sets, e => {
+          if (_.isEqual(tags, new Set(e.tags))) {
+            discount = e.discount
+          }
+        })
+        return parseFloat(discount)
+      }
+    },
+    totalDiscount() {
+      return Math.floor(this.cost - this.totalCost)
     },
     totalCost() {
-      return this.cost - (this.cost * this.discount / 100)
+      return Math.floor(this.cost - (this.cost * this.discount / 100))
     },
     image() {
       let image = null
