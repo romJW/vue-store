@@ -418,7 +418,7 @@ export default {
           ${this.discount ? "Скидка: " + this.discount : ""}
           ${this.totalCost ? "Со скидкой: " + this.totalCost : ""}
           ${this.form.type
-            ? "Тип: " + this.spec.typeItems[form.type]
+            ? "Тип: " + this.spec.typeItems[this.form.type]
             : ""
           }
           ${this.form.material
