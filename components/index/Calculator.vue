@@ -205,15 +205,21 @@
               - Комплекта водоподготовки для запуска.
             </div>
           </Card>
-          <div class="flex justify-center mt-4">
+          <div class="hidden xl:flex justify-center mt-4">
             <Button type="default" size="lg" @click="showSubmiteOrderModal">
               Оставить заявку
             </Button>
           </div>
         </div>
-        <div class="2xl:w-8/12 h-full shadow-xl">
-          <img v-if="image" :src="getLink(image)"/>
-          <img v-else src="../../assets/calculator_1.jpg" />
+        <div class="2xl:w-8/12 grow h-full relative image-meta">
+          <img class="absolute z-0 shadow-xl image-meta" v-if="imageStack[0]" :src="getLink(imageStack[0])" />
+          <img class="absolute z-10 shadow-xl tweened-image image-meta" v-if="imageStack[1]" :src="getLink(imageStack[1])"/>
+          <img class="shadow-xl image-meta" v-else src="../../assets/calculator_1.jpg" />
+          <div class="flex xl:hidden justify-center mt-4">
+            <Button type="default" size="lg" @click="showSubmiteOrderModal">
+              Оставить заявку
+            </Button>
+          </div>
         </div>
       </div>
     </div>
@@ -244,6 +250,7 @@ export default {
     return {
       getLink,
       images: [],
+      imageStack: [],
       tweenedTotalCost: 0,
       tweenedTotalDiscount: 0,
       complectation: {},
@@ -309,6 +316,9 @@ export default {
     totalDiscount(value) {
       gsap.to(this, { duration: 0.5, tweenedTotalDiscount: value || 0 })
     },
+    image() {
+      gsap.fromTo(".tweened-image", { opacity: 0.5 }, { duration: 1, opacity: 1 })
+    }
   },
   computed: {
     cost() {
@@ -379,6 +389,7 @@ export default {
           return image = e.id
         }
       })
+      this.imageStack = [this.imageStack[1], image]
       return image
     }
   },
@@ -453,5 +464,8 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.image-meta {
+  @apply 2xl:h-[820px] xl:h-[560px];
 }
 </style>
