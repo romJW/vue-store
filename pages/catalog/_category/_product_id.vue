@@ -103,6 +103,7 @@ export default {
             model
             manufacturer
             description
+            seo_tags
             preview {
               id
             }
@@ -146,7 +147,12 @@ export default {
             hid: 'description',
             name: 'description',
             content: this.product.seo_description,
-          }
+          },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: this.product.seo_tags,
+          },
         ]
       }
     }
