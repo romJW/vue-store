@@ -71,13 +71,33 @@
         </div>
       </div>
     </div>
-    <div class="flex w-full justify-center mt-4">
-      <Button @click="showSubmiteOrderModal" size="big" type="default" class=" w-full xl:w-max">Заказать павильон</Button>
+    <div class="flex flex-col lg:flex-row w-full justify-center gap-4 mt-4">
+      <Button
+        @click="showSubmiteOrderModal"
+        size="lg"
+        type="default"
+        class="w-full xl:w-max"
+      >
+        Заказать павильон
+      </Button>
+      <Button
+        @click="getFiles"
+        type="alternative"
+        size="lg"
+        class="!px-2 w-full xl:w-max"
+      >
+        Получить спецификации
+      </Button>
     </div>
   </div>
 </template>
 
 <script>
+import _ from 'lodash'
+
+import directus from '@/utils/directus.js'
+import getLink from '@/utils/assets.js'
+
 import Button              from '@/library/Button.vue'
 import TehnicalSupportIcon from '@/components/icons/TehnicalSupport.vue'
 import CalendarTimeIcon    from '@/components/icons/CalendarTime.vue'
@@ -133,6 +153,16 @@ export default {
         { onSubmit: this.sendRequest }
       )
     },
+    async getFiles() {
+      var response = await directus.folders.readByQuery({ search: "Сметы" })
+      let folderId = _.head(response.data).id
+      var response = await directus.files.readByQuery({ filter: { folder: { _eq: folderId } } })
+      let files = response.data
+      _.map(files, ({ id }) => {
+        window.open(getLink(id))
+      })
+      console.log(files)
+    }
   }
 }
 
