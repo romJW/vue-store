@@ -61,7 +61,12 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',
+    '@nuxtjs/sentry',
   ],
+
+  sentry: {
+    dsn: 'https://f8d0f1b389794506b178cc6b354699b6@o1255814.ingest.sentry.io/6424519',
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
