@@ -103,6 +103,8 @@ export default {
             model
             manufacturer
             description
+            seo_title
+            seo_description
             seo_tags
             preview {
               id
