@@ -1,22 +1,34 @@
 <template>
-  <Card class="gap-4">
-    <span class="text-center font-bold text-xl">Оставьте ваши данные</span>
-    <span class="text-center text-md">и наш проектировщик свяжется <br/> с Вами в ближайшее время</span>
-    <div class="flex flex-col gap-2">
-      <Input @onChange="v => name = v" type="text" placeholder="Ваше имя" />
-      <Input @onChange="v => phone = v" type="tel" placeholder="Номер телефона" />
-      <Button @click="submit" data-type="default">
-        Оформить заказ
-      </Button>
-      <div class="text-center text-gray-400">
-        <span class="font-normal text-xs">
-          Нажимая на кнопку, вы соглашаетесь с
-        </span>
-        <br/>
-        <a class="font-normal text-xs" href="#">условиями обработки персональных данных</a>
+  <form @submit="submit">
+    <Card class="gap-4">
+      <span class="text-center font-bold text-xl">Оставьте ваши данные</span>
+      <span class="text-center text-md">и наш проектировщик свяжется <br/> с Вами в ближайшее время</span>
+      <div class="flex flex-col gap-2">
+        <Input
+          @onChange="v => name = v"
+          type="text"
+          required
+          placeholder="Ваше имя"
+        />
+        <Input
+          @onChange="v => phone = v"
+          type="tel"
+          required
+          placeholder="Номер телефона"
+        />
+        <Button data-type="default">
+          Оформить заказ
+        </Button>
+        <div class="text-center text-gray-400">
+          <span class="font-normal text-xs">
+            Нажимая на кнопку, вы соглашаетесь с
+          </span>
+          <br/>
+          <a class="font-normal text-xs" href="#">условиями обработки персональных данных</a>
+        </div>
       </div>
-    </div>
-  </Card>
+    </Card>
+  </form>
 </template>
 
 <script>
