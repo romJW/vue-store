@@ -38,13 +38,14 @@ export default {
     }
   },
   methods: {
-    async submit() {
+    async submit(event) {
       this.loading = true
       await this.$props.onSubmit({
         email: this.email,
       })
       this.loading = false
       this.$emit('close')
+      event.preventDefault();
     }
   }
 }
