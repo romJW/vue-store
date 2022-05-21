@@ -11,9 +11,10 @@
           placeholder="Ваше имя"
         />
         <Input
-          @onChange="v => phone = v"
+          @onAccept="v => phone = v"
           type="tel"
           required
+          :mask="mask"
           placeholder="Номер телефона"
         />
         <Button data-type="default">
@@ -44,10 +45,13 @@ export default {
       loading: false,
       name: '',
       phone: '',
+      mask: {
+        mask: '+{7} (000) 000 00 00',
+      },
     }
   },
   methods: {
-    async submit() {
+    async submit(event) {
       this.loading = true
       await this.$props.onSubmit({
         name: this.name,
@@ -55,6 +59,7 @@ export default {
       })
       this.loading = false
       this.$emit('close')
+      event.preventDefault();
     }
   }
 }
