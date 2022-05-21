@@ -10,7 +10,10 @@
       :type="type"
       :value="value"
       :required="required"
+      v-imask="mask"
       @change="onChange"
+      @accept="onAccept"
+      @complete="onComplete"
       :min="$props.min"
       :placeholder="placeholder"
     />
@@ -19,6 +22,8 @@
 </template>
 
 <script>
+import { IMaskDirective } from 'vue-imask';
+
 export default {
   props: {
     id: {
@@ -38,6 +43,9 @@ export default {
       type: String,
       default: 'text',
     },
+    mask: {
+      type: Object,
+    },
     value: {
       type: String,
     },
@@ -51,11 +59,22 @@ export default {
       type: String,
     }
   },
+  directives: {
+    imask: IMaskDirective
+  },
   methods: {
     onChange (event) {
       let value = event.target.value
       this.$emit("onChange", value)
-    }
+    },
+    onAccept (e) {
+      const maskRef = e.detail;
+      this.$emit("onAccept", maskRef.value)
+    },
+    onComplete (e) {
+      const maskRef = e.detail;
+      this.$emit("onComplete", maskRef.unmaskedValue)
+    },
   },
   computed: {
     _class() {
