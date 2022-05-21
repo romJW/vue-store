@@ -9,6 +9,7 @@
       :class="`${$props.inputClass} p-0 border-0 focus:border-0 w-full`"
       :type="type"
       :value="value"
+      :required="required"
       @change="onChange"
       :min="$props.min"
       :placeholder="placeholder"
@@ -22,6 +23,10 @@ export default {
   props: {
     id: {
       type: String,
+    },
+    required: {
+      type: Boolean,
+      default: false,
     },
     styles: {
       type: String,
