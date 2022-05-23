@@ -92,6 +92,8 @@ export default {
     gzip: true,
     routes: [
       '/search',
+      '/catalog/plenka',
+      '/catalog/plenka/58',
     ],
   },
 
