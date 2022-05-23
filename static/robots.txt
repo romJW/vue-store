@@ -1,2 +1,5 @@
-User-agent: *
+user-agent: *
+Allow: /$
+Allow: /catalog/plenka
+Allow: /catalog/plenka/58
 Disallow: /
