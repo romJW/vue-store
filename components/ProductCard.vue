@@ -19,25 +19,34 @@
         <span class="text-xl font-bold text-gray-900">
           {{ product.price }} тенге
         </span>
-        <button class="mt-4 md:mt-0" data-type="default" @click="$store.getters['cart/isInCart'](product) ? removeFromCart() : addToCart()">
-          {{ $store.getters['cart/isInCart'](product) ? 'Добавлено' : 'В корзину' }}
-        </button>
+        <Button
+          class="mt-4 md:mt-0"
+          data-type="default"
+          @click="isInCart(product) ? removeFromCart() : addToCart()"
+        >
+          {{ isInCart(product) ? 'Добавлено' : 'В корзину' }}
+        </Button>
       </div>
     </div>
   </Card>
 </template>
 
 <script>
-import { Card } from '../library'
-import Loading from '../library/Loading.vue'
+import { mapGetters } from 'vuex'
+import { Card, Button } from '@/library'
+import Loading from '@/library/Loading.vue'
 
 export default {
   props: ['product'],
   components: {
     Card,
+    Button,
     Loading,
   },
   computed: {
+    ...mapGetters({
+      isInCart: 'cart/isInCart',
+    }),
     href() {
       return `/catalog/${this.$props.product.category.id}/${this.$props.product.id}`
     }
