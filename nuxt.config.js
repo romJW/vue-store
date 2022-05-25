@@ -17,7 +17,8 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-      { name:"robots", content:"noindex" },
+      { name: "robots", content: "noindex" },
+      { name: "yandex-verification", content: "fb9d82ed21c7d7e8" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -63,10 +64,19 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',
     '@nuxtjs/sentry',
+    '@nuxtjs/yandex-metrika',
   ],
 
   sentry: {
     dsn: process.env.SENTRY_DSN,
+  },
+
+  yandexMetrika: {
+    id: '88864210',
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
