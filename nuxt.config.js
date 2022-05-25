@@ -66,7 +66,7 @@ export default {
   ],
 
   sentry: {
-    dsn: 'https://f8d0f1b389794506b178cc6b354699b6@o1255814.ingest.sentry.io/6424519',
+    dsn: process.env.SENTRY_DSN,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
