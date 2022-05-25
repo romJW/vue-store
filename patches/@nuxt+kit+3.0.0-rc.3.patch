@@ -1,0 +1,17 @@
+diff --git a/node_modules/@nuxt/kit/dist/index.mjs b/node_modules/@nuxt/kit/dist/index.mjs
+index 120b935..403c393 100644
+--- a/node_modules/@nuxt/kit/dist/index.mjs
++++ b/node_modules/@nuxt/kit/dist/index.mjs
+@@ -103,7 +103,11 @@ function addServerHandler(handler) {
+   useNuxt().options.serverHandlers.push(handler);
+ }
+ function addDevServerHandler(handler) {
+-  useNuxt().options.devServerHandlers.push(handler);
++  let nuxt = useNuxt()
++  if (!nuxt.options.devServerHandlers) {
++    nuxt.options.devServerHandlers = []
++  }
++  nuxt.options.devServerHandlers.push(handler);
+ }
+ 
+ async function checkNuxtCompatibility(constraints, nuxt = useNuxt()) {
