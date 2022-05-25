@@ -15,6 +15,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/88864210" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    <meta name="yandex-verification" content="fb9d82ed21c7d7e8" />
     <notifications position="top right" />
     <Vendor class="z-50 min-h-[100px]" />
     <MobileMenu class="pt-[120px] 2xl:pt-0" v-if="isMobileMenuOpen" />
