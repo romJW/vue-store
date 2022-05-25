@@ -1,9 +1,9 @@
 <template>
   <div id="pavilions" class="section flex flex-col 2xl:items-center gap-4">
     <div class="text-center">
-      <span class="section__title">
+      <h2 class="section__title">
         {{ `Изготовление павильонов для бассейнов` }}
-      </span>
+      </h2>
     </div>
 
     <Swiper

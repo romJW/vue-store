@@ -4,9 +4,9 @@
       <div class="container section mx-auto flex lg:z-10 relative">
         <div class="2xl:w-7/12 flex flex-col gap-4 md:gap-8">
           <div>
-            <span class="section__title text-white">
+            <h2 class="section__title text-white">
               Блочно-пленочные бассейны «под ключ»
-            </span>
+            </h2>
           </div>
           <div>
             <span class="text-white text-base md:text-xl">

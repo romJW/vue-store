@@ -1,9 +1,9 @@
 <template>
   <div v-if="!$apollo.queries.spec.loading" id="calculator">
     <div class="container section mx-auto flex flex-col items-cetner gap-8">
-      <div class="section__title">
+      <h2 class="section__title">
         Калькулятор стоимости бассейна
-      </div>
+      </h2>
       <div class="flex justify-center items-center">
         <div class="section__sub-title">
           Ответьте на 4 вопроса и мы отправим вам смету на строительство <br> бассейна в течении 1 рабочего дня

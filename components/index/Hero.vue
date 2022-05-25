@@ -7,9 +7,9 @@
     />
     <div class="relative max-w-screen-xl px-4 py-24 lg:py-36 2xl:py-52 mx-auto sm:px-6 lg:px-8">
       <div class="flex flex-col max-w-3xl mx-auto text-center gap-8">
-        <h2 class="mt-2 text-4xl font-bold text-white sm:text-6xl">
+        <h1 class="mt-2 text-4xl font-bold text-white sm:text-6xl">
           Строительство бассейнов <br class="inline md:hidden lg:inline"> “под ключ” <br> по Алматы и Казахстану
-        </h2>
+        </h1>
         <div class="flex flex-col lg:flex-row justify-center gap-4">
           <Button type="default" @click="showSubmiteOrderModal" class="lg:w-1/2">
             Оставить заявку
