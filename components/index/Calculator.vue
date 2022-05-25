@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$apollo.loading" id="calculator">
+  <div v-if="!$apollo.queries.spec.loading" id="calculator">
     <div class="container section mx-auto flex flex-col items-cetner gap-8">
       <div class="section__title">
         Калькулятор стоимости бассейна
@@ -254,14 +254,13 @@ export default {
       tweenedTotalCost: 0,
       tweenedTotalDiscount: 0,
       complectation: {},
+      complectationData: {},
       form: {
         type: null,
         material: null,
         size: null,
         heater: null,
         ladder: true,
-        name: "",
-        phone: "",
       }
     }
   },
@@ -302,6 +301,114 @@ export default {
         }
       }
     },
+    sizesdata: {
+      query() {
+        if (this.form.size) {
+          return gql`
+            query getPrices(
+              $filter_ids: [Float]!,
+              $ladder_ids: [Float]!,
+              $electric_ids: [Float]!,
+              $disinfectant_ids: [Float]!,
+              $dosing_station_ids: [Float]!,
+              $led_ids: [Float]!,
+              $curbstone_ids: [Float]!,
+              $antistream_ids: [Float]!,
+              $exchanger_ids: [Float]!
+            ) {
+              filter: products(filter: { id: { _in: $filter_ids}}) {
+                id
+                price
+              },
+              ladder: products(filter: { id: { _in: $ladder_ids}}) {
+                id
+                price
+              },
+              electric: products(filter: { id: { _in: $electric_ids}}) {
+                id
+                price
+              },
+              exchanger: products(filter: { id: { _in: $exchanger_ids}}) {
+                id
+                price
+              },
+              disinfectant: products(filter: { id: { _in: $disinfectant_ids}}) {
+                id
+                price
+              },
+              dosing_station: products(filter: { id: { _in: $dosing_station_ids }}) {
+                id
+                price
+              },
+              antistream: products(filter: { id: { _in: $antistream_ids}}) {
+                id
+                price
+              },
+              led: products(filter: { id: { _in: $led_ids}}) {
+                id
+                price
+              },
+              curbstone: products(filter: { id: { _in: $curbstone_ids}}) {
+                id
+                price
+              },
+            }
+          `
+        }
+      },
+      variables() {
+        if (this.form.size) {
+          return {
+            filter_ids:         _.map(this.form.size.complectations.filter, e            => parseFloat(e.id)),
+            ladder_ids:         _.map(this.form.size.complectations.ladder, e            => parseFloat(e.id)),
+            electric_ids:       _.map(this.form.size.complectations.electric, e          => parseFloat(e.id)),
+            exchanger_ids:      _.map(this.form.size.complectations.exchanger, e         => parseFloat(e.id)),
+            disinfectant_ids:   _.map(this.form.size.complectations.disinfectant, e      => parseFloat(e.id)),
+            dosing_station_ids: _.map(this.form.size.complectations["dosing station"], e => parseFloat(e.id)),
+            antistream_ids:     _.map(this.form.size.complectations.antistream, e        => parseFloat(e.id)),
+            led_ids:            _.map(this.form.size.complectations.led, e               => parseFloat(e.id)),
+            curbstone_ids:      _.map(this.form.size.complectations.curbstone, e         => parseFloat(e.id)),
+          }
+        }
+      },
+      update({
+        filter,
+        ladder,
+        electric,
+        exchanger,
+        disinfectant,
+        dosing_station,
+        antistream,
+        led,
+        curbstone,
+      }) {
+        let data = {
+          filter,
+          ladder,
+          electric,
+          exchanger,
+          disinfectant,
+          "dosing station": dosing_station,
+          antistream,
+          led,
+          curbstone,
+        }
+        _.forEach(data, (value, key) => {
+          this.complectationData[key] = _.reduce(
+            _.concat(this.form.size.complectations[key], value),
+            (acc, item) => {
+              acc[item.id] = { ...acc[item.id], ...item }
+              return acc
+            },
+            {}
+          )
+        })
+        return data
+      },
+      skip() {
+        return !this.form.size
+      }
+    }
   },
   mounted() {
     directus.files.readByQuery({ limit: -1 })
@@ -328,25 +435,23 @@ export default {
           this.complectation,
           (result, { price }, key) => {
             switch (key) {
-              case "filter":
-              case "led":
-              case "electric":
-              case "exchanger":
-              case "disinfectant":
-              case "dosing station":
-              case "antistream":
-                return result + (parseInt(price) * parseInt(this.form.size.V))
-              case "curbstone":
               case "pavilion":
-                return result + (parseInt(price) * parseInt(this.form.size.P))
+                return result + this.form.size.pavilion.cost
               case "panel":
                 return result + (parseInt(price) * parseInt(this.form.size.S))
               case "liner":
                 if (this.form.material) {
                   return result + (this.form.material.price * parseInt(this.form.size.S))
                 }
-              case "ladder":
-                return result + parseInt(price)
+              default:
+                return result + _.reduce(
+                  this.complectationData[key],
+                  (acc, item) => {
+                    acc += item.count * item.price
+                    return acc
+                  },
+                  0
+                )
             }
           },
           0
@@ -410,7 +515,7 @@ export default {
         this.form.heater = null
       }
     },
-    sendRequest() {
+    sendRequest({ name, phone }) {
       const complectations = _.reduce(
         this.complectation,
         (result, value, key) => {
@@ -421,12 +526,12 @@ export default {
         []
       )
       const data = {
-        name: this.form.name,
-        phone: this.form.phone,
+        name: name,
+        phone: phone,
         content: `
           Заявка на бассейн:
           ${this.cost ? "Цена: " + this.cost : ""}
-          ${this.discount ? "Скидка: " + this.discount : ""}
+          ${this.discount ? "Скидка: " + `${this.discount}%` : ""}
           ${this.totalCost ? "Со скидкой: " + this.totalCost : ""}
           ${this.form.type
             ? "Тип: " + this.spec.typeItems[this.form.type]
