@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     async submit(event) {
+      event.preventDefault();
       this.loading = true
       await this.$props.onSubmit({
         name: this.name,
@@ -59,7 +60,6 @@ export default {
       })
       this.loading = false
       this.$emit('close')
-      event.preventDefault();
     }
   }
 }
