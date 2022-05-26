@@ -8,14 +8,18 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Proaqua.kz',
+    title: 'Проектирование и строительство бассейна. Пленка и оборудование в наличии на складе в Казахстане.',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Спроектируем и построим бассейн под Ваши требования. Комплектующие в наличии на складе в Алматы. Отправка по Казахстану. Гарантия на работу и оборудование.'
+      },
       { name: 'format-detection', content: 'telephone=no' },
       { name: "robots", content: "noindex" },
       { name: "yandex-verification", content: "fb9d82ed21c7d7e8" },
