@@ -172,7 +172,11 @@
               <CheckBox label="УФ обеззараживатель" @onChange="checked => setComplectation('disinfectant', checked)" />
               <CheckBox label="Станция дозации"     @onChange="checked => setComplectation('dosing station', checked)" />
               <CheckBox label="Противоток"          @onChange="checked => setComplectation('antistream', checked)" />
-              <CheckBox label="Павильон"            @onChange="checked => setComplectation('pavilion', checked)" />
+              <CheckBox
+                disabled="!form.size.pavilion"
+                label="Павильон"
+                @onChange="checked => setComplectation('pavilion', checked)"
+              />
               <CheckBox label="Бордюрный камень"    @onChange="checked => setComplectation('curbstone', checked)" />
             </template>
           </Disclosure>
