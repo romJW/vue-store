@@ -436,7 +436,10 @@ export default {
           (result, { price }, key) => {
             switch (key) {
               case "pavilion":
-                return result + this.form.size.pavilion.cost
+                if (this.form.size.pavilion) {
+                  return result + this.form.size.pavilion.cost
+                }
+                return result
               case "panel":
                 return result + (parseInt(price) * parseInt(this.form.size.S))
               case "liner":
