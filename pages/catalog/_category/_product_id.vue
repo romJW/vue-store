@@ -1,7 +1,7 @@
 <template>
   <div>
     <Loading v-if="$apollo.loading" />
-    <div v-else>
+    <div v-else-if="product">
       <PageBanner
         :title="product.name"
         :routes="breadcrumbs"
@@ -131,10 +131,14 @@ export default {
       },
       update: data => {
         const product = prepareProduct(_.head(data.products))
+        if (product.images) {
+          product.images = _.map(product.images, e => e.directus_files_id.id)
+        }
+        if (product.description) {
+          product.description = md.render(product.description)
+        }
         return {
           ...product,
-          images: _.map(product.images, e => e.directus_files_id.id),
-          description: md.render(product.description),
           deal_info: md.render(data.settings.deal_info),
         }
       },
