@@ -5,7 +5,7 @@
       <span class="text-center text-md">Мы вышлем прайс лист на указанную почту</span>
       <div class="flex flex-col gap-2">
         <Input
-          @onChange="v => state.email = v"
+          @onChange="v => email = v"
           type="email"
           required
           placeholder="Email"
@@ -39,13 +39,13 @@ export default {
   },
   methods: {
     async submit(event) {
+      event.preventDefault();
       this.loading = true
       await this.$props.onSubmit({
         email: this.email,
       })
       this.loading = false
       this.$emit('close')
-      event.preventDefault();
     }
   }
 }

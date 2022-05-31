@@ -31,7 +31,7 @@ export default {
           name: email,
           content: "Запрос на прайслист от неизвестного пользователя",
         })
-        throw new Error("Dealer not found!")
+        this.$notify("Email не найден")
       }
     },
     showModal() {
