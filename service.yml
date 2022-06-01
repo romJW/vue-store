@@ -28,6 +28,7 @@ services:
         - traefik.http.services.ecom-client.loadbalancer.server.port=8000
     environment:
       - DIRECTUS_URL=${DIRECTUS_URL?Variable not set}
+      - SENTRY_DSN=${SENTRY_DSN?Variable not set}
     networks:
       # use the public network created to be shared between traefik and
       # any other service that needs to be publicly available with https
