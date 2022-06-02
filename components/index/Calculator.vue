@@ -134,23 +134,56 @@
               </div>
             </template>
             <template v-slot:open>
-              <CheckBox label="Система фильтрации"
-                disabled
-                :checked="complectation.filter"
-              />
-              <CheckBox label="LED освещение"
-                disabled
-                :checked="complectation.led"
-              />
-              <CheckBox label="Лестница для бассейна"
-                disabled
-                :checked="complectation.ladder"
-              />
+              <span class="flex justify-between">
+                <CheckBox label="Система фильтрации"
+                  disabled
+                  :checked="complectation.filter"
+                  v-popover:tooltip="'This is a string value'"
+                />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Система фильтрации – система механической фильтрации с использованием песчаного фильтра является обязательной и входит в минимальную комплектацию.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox label="LED освещение"
+                  disabled
+                  :checked="complectation.led"
+                />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    LED освещение – освещение бассейна сверхъяркими светодиодами основанными на технологии LED входит в минимальную комплектацию.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox label="Лестница для бассейна"
+                  disabled
+                  :checked="complectation.ladder"
+                />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Лестница для бассейна – набортная лестница из нержавеющей стали входит в минимальную комплектацию.
+                  </template>
+                </Popover>
+              </span>
 
               <div class="my-2">
-                <div class="text-sm text-gray-500">
-                  Нагрев воды
-                </div>
+                <span class="flex justify-between">
+                  <div class="text-sm text-gray-500">
+                    Нагрев воды
+                  </div>
+                  <Popover>
+                    <span class="material-icons">help_outline</span>
+                    <template v-slot:content>
+                      Нагрев воды – для подогрева воды выше температуры окружающей среды необходимо использовать электронагреватель (работает от электричества) или теплообменник (работает от 4) Наг
+                    </template>
+                  </Popover>
+                </span>
                 <CheckBox
                   label="Электронагреватель"
                   @onChange="checked => {
@@ -169,21 +202,69 @@
                 />
               </div>
 
-              <CheckBox label="УФ обеззараживатель" @onChange="checked => setComplectation('disinfectant', checked)" />
-              <CheckBox label="Станция дозации"     @onChange="checked => setComplectation('dosing station', checked)" />
-              <CheckBox label="Противоток"          @onChange="checked => setComplectation('antistream', checked)" />
-              <CheckBox
-                disabled="!form.size.pavilion"
-                label="Павильон"
-                @onChange="checked => setComplectation('pavilion', checked)"
-              />
-              <CheckBox label="Бордюрный камень"    @onChange="checked => setComplectation('curbstone', checked)" />
+              <span class="flex justify-between">
+                <CheckBox label="УФ обеззараживатель" @onChange="checked => setComplectation('disinfectant', checked)" />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    УФ обезараживатель – система отчистки с использованием ультрафиолета нужна для отчистки воды от бактерий.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox label="Станция дозации"     @onChange="checked => setComplectation('dosing station', checked)" />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Станция дозации – система автоматического добавления химических веществ для очистки воды.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox label="Противоток"          @onChange="checked => setComplectation('antistream', checked)" />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Противоток – создает под водой мощный поток воды.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox
+                  disabled="!form.size.pavilion"
+                  label="Павильон"
+                  @onChange="checked => setComplectation('pavilion', checked)"
+                />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Павильон – прозрачная конструкция строящееся над бассейном для защиты от осадков, мусора и сохранения температуры воды. Максимальные размеры 4,5 на 9 метров.
+                  </template>
+                </Popover>
+              </span>
+              <span class="flex justify-between">
+                <CheckBox label="Бордюрный камень"    @onChange="checked => setComplectation('curbstone', checked)" />
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Бордюрный камень – декоративный камень, устанавливаемый по периметру бассейна.
+                  </template>
+                </Popover>
+              </span>
             </template>
           </Disclosure>
 
           <Card class="flex flex-col !p-4">
             <div v-if="cost - totalCost > 0" class="flex flex-col mb-2">
-              <span>Скидка на оборудование</span>
+              <span class="flex justify-between">
+                <span>Скидка на оборудование</span>
+                <Popover>
+                  <span class="material-icons">help_outline</span>
+                  <template v-slot:content>
+                    Стоимость с учетом скидки – чем больше опций входит в комплектацию бассейна, тем больше итоговая скидка. Калькулятор на сайте предназначен в ознакомительных целях и может показывать цены отличные от актуальных на данный момент. Итоговый расчет выполняется менеджером.
+                  </template>
+                </Popover>
+              </span>
               <div class="flex gap-2">
                 <span class="text-blue-500 font-bold">{{ tweenedTotalDiscount.toFixed(0) }}</span>
                 <span>тенге</span>
@@ -237,6 +318,7 @@ import _ from 'lodash'
 import getLink from    '@/utils/assets.js'
 import { Button, Input, Card } from '@/library'
 import Disclosure from '@/library/Disclosure'
+import Popover from '@/library/Popover'
 import RadioInput from '@/components/inputs/RadioInput.vue'
 import Radio from      '@/components/inputs/Radio.vue'
 import CheckBox from   '@/components/inputs/CheckBox.vue'
@@ -248,7 +330,7 @@ import SubmitOrderModal from '@/components/modals/SubmitOrder.vue'
 
 export default {
   components: {
-    Button, Input, Card, Tag, CheckBox, Radio, RadioInput, Disclosure
+    Button, Input, Card, Tag, CheckBox, Radio, RadioInput, Disclosure, Popover
   },
   data() {
     return {
