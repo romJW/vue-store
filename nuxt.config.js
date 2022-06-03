@@ -123,4 +123,18 @@ export default {
       }
     }
   },
+
+  router: {
+    scrollBehavior(to, from, savedPosition) {
+      let defaultPos = { left: 0, top: 0 };
+      if (savedPosition) {
+        return savedPosition;
+      } else if (to.hash) {
+        let elem = document.querySelector(to.hash);
+        return elem ? elem.scrollIntoView({ behavior: 'smooth' }) : defaultPos;
+      } else {
+        return defaultPos;
+      }
+    }
+  }
 }
