@@ -1,5 +1,5 @@
 <template>
-  <header class="shadow w-screen 2xl:w-full flex flex-col justify-center fixed 2xl:sticky bg-white z-10">
+  <header class="shadow w-screen 2xl:w-full flex flex-col justify-center sticky top-[-1px] 2xl:sticky bg-white z-10">
     <div id="header__container" class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10">
       <nuxt-link to="/">
         <img src="../assets/abbex_logo.jpg" />
