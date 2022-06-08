@@ -122,9 +122,15 @@
           </div>
         </div>
       </div>
-      <p class="mt-8 text-xs text-gray-500">
-        &copy; 2022 Abbex
-      </p>
+      <div class="flex mt-8 gap-8">
+        <p class="text-xs text-gray-500">
+          &copy; 2022 Abbex
+        </p>
+        <p class="text-xs text-gray-500">
+          Сайт разработан
+          <a href="https://croxware.com">croxware.com</a>
+        </p>
+      </div>
     </div>
   </footer>
 </template>
