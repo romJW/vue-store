@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="flex flex-col xl:flex-row">
-        <div class="2xl:w-4/12">
+        <div class="xl:w-4/12">
 
           <Disclosure class="!p-4" defaultOpen="true">
             <template v-slot:header="{ open, toggle }">
@@ -265,7 +265,7 @@
             </Button>
           </div>
         </div>
-        <div class="2xl:w-8/12 grow h-full relative image-meta">
+        <div class="xl:w-8/12 grow h-full relative image-meta xl:px-8">
           <img class="absolute z-0 shadow-xl image-meta" v-if="imageStack[0]" :src="getLink(imageStack[0])" />
           <img class="absolute z-10 shadow-xl tweened-image image-meta" v-if="imageStack[1]" :src="getLink(imageStack[1])"/>
           <img class="shadow-xl image-meta" v-else src="../../assets/calculator_1.jpg" />
