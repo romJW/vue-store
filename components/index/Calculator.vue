@@ -209,7 +209,7 @@
               </span>
               <span class="flex justify-between">
                 <CheckBox
-                  disabled="!form.size.pavilion"
+                  :disabled="form.size && !form.size.pavilion"
                   label="Павильон"
                   @onChange="checked => setComplectation('pavilion', checked)"
                 />
