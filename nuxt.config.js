@@ -48,6 +48,7 @@ export default {
     { src: '@/plugins/notification-ssr.js', ssr: true },
     { src: '@/plugins/notification.js', ssr: false },
     '@/plugins/axios.js',
+    '@/plugins/icons.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -136,4 +137,5 @@ export default {
       }
     }
   }
+
 }
