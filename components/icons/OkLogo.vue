@@ -1,5 +1,5 @@
 <template>
-  <font-awesome-icon icon="fa-brands fa-odnoklassniki-square" :style="{ color: color }"/>
+  <fa-icon icon="fa-brands fa-odnoklassniki-square" :style="{ color: color }"/>
 </template>
 
 <script>

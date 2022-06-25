@@ -1,27 +1,20 @@
-// For Nuxt 2
 import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsappSquare,faVk,faInstagramSquare,faOdnoklassnikiSquare } from '@fortawesome/free-brands-svg-icons'
-import {faCircleQuestion,} from '@fortawesome/free-regular-svg-icons'
+import { faWhatsappSquare, faVk, faInstagramSquare, faOdnoklassnikiSquare } from '@fortawesome/free-brands-svg-icons'
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 
-// This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false
 
-// You can add your icons directly in this plugin. See other examples for how you
-// can add other styles or just individual icons.
-library.add(fas,faWhatsappSquare,faVk,faInstagramSquare,faOdnoklassnikiSquare,faCircleQuestion, faMagnifyingGlass )
+library.add(fas,
+  faWhatsappSquare,
+  faVk,
+  faInstagramSquare,
+  faOdnoklassnikiSquare,
+  faCircleQuestion,
+   faMagnifyingGlass )
 
 // Register the component globally
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('fa-icon', FontAwesomeIcon)
 
-
-// Modify nuxt.config.js adding to the `css` and `plugins` sections.
-css: [
-  '@fortawesome/fontawesome-svg-core/styles.css'
-]
-
-plugins: [
-  '~/plugins/fontawesome.js'
-]

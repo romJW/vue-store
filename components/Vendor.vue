@@ -24,15 +24,15 @@
         <a href="mailto:info@abbex.kz">info@abbex.kz</a>
         <div class="flex gap-2">
           <a href="https://vk.com/abbex">
-            <VkLogoIcon color="#4267B2" />
+            <fa-icon icon="fa-brands fa-vk" :style="{ color: '#4267B2' }" />
           </a>
           <a href="https://www.instagram.com/abbex.kz/">
-            <InstagramLogoIcon color="#4267B2"/>
+            <fa-icon icon="fa-brands fa-instagram-square" :style="{ color: '#4267B2' }"/>
           </a>
           <a href="https://wa.me/+77717411822">
-            <WhatsappLogoIcon color="#4267B2" />
+            <fa-icon icon="fa-brands fa-whatsapp-square" :style="{ color: '#4267B2' }"/>
           </a>
-          <OkLogoIcon color="#4267B2" />
+          <fa-icon icon="fa-brands fa-odnoklassniki-square" :style="{ color: '#4267B2' }"/>
         </div>
       </div>
       <div class="flex items-center lg:hidden" @click="toggleMobileMenu">

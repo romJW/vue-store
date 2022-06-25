@@ -1,7 +1,7 @@
 <template>
   <Popper :options="options">
     <slot slot="content" />
-      <font-awesome-icon icon="fa-regular fa-circle-question"   slot="reference" class="material-icons text-blue-500 w-6 h-6 "/>
+      <fa-icon icon="fa-regular fa-circle-question"   slot="reference" class="material-icons text-blue-500 w-6 h-6 "/>
     
   </Popper>
 </template>

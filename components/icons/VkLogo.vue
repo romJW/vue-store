@@ -1,5 +1,5 @@
 <template>
- <font-awesome-icon icon="fa-brands fa-vk" :style="{ color: color }" />
+ <fa-icon icon="fa-brands fa-vk" :style="{ color: color }" />
 </template>
 
 <script>
