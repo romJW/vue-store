@@ -7,14 +7,14 @@
       <Nuxt />
       <Footer />
       <a
-        class="2xl:hidden bg-white rounded-full fixed z-50 bottom-6 right-6 cursor-pointer"
+        class="2xl:hidden bg-white rounded-full fixed z-50 bottom-6 right-6 cursor-pointer w-12 h-12"
         href="https://wa.me/+77717411822"
         target="_blank"
         rel="noreferrer"
       >
         <fa-icon
-          icon="fa-brands fa-whatsapp-square"
-          class="w-14 h-14"
+          icon="fa-brands fa-whatsapp"
+          class="absolute w-14 h-14 inset-0"
           :style="{ color: '#00e676' }"
         />
       </a>
