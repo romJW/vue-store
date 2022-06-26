@@ -12,9 +12,10 @@
         target="_blank"
         rel="noreferrer"
       >
-        <WhatsappLogoIcon
+        <fa-icon
+          icon="fa-brands fa-whatsapp-square"
           class="w-14 h-14"
-          color="#00e676"
+          :style="{ color: '#00e676' }"
         />
       </a>
     </div>
@@ -22,35 +23,33 @@
 </template>
 
 <script>
-import '../assets/index.scss'
-import '../assets/cw.scss'
-import { mapMutations, mapState } from 'vuex'
+import "../assets/index.scss";
+import "../assets/cw.scss";
+import { mapMutations, mapState } from "vuex";
 
-import Vendor from '../components/Vendor.vue'
-import Footer from '../components/Footer.vue'
-import MobileMenu from '../components/MobileMenu.vue'
-import WhatsappLogoIcon from '../components/icons/WhatsappLogo.vue'
+import Vendor from "../components/Vendor.vue";
+import Footer from "../components/Footer.vue";
+import MobileMenu from "../components/MobileMenu.vue";
 
 export default {
   components: {
     Vendor,
     Footer,
     MobileMenu,
-    WhatsappLogoIcon
   },
   computed: mapState({
-    isMobileMenuOpen: 'isMobileMenuOpen',
+    isMobileMenuOpen: "isMobileMenuOpen",
   }),
   methods: {
     ...mapMutations({
-      toggleMobileMenu: 'toggleMobileMenu',
-      cartSetup: 'cart/setup',
+      toggleMobileMenu: "toggleMobileMenu",
+      cartSetup: "cart/setup",
     }),
   },
   mounted() {
-    this.cartSetup()
-  }
-}
+    this.cartSetup();
+  },
+};
 </script>
 
 <style lang="scss">

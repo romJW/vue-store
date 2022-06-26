@@ -137,22 +137,12 @@
 
 <script>
 import SearchInput       from './SearchInput.vue'
-import InstagramLogoIcon from './icons/InstagramLogo.vue'
-import OkLogoIcon        from './icons/OkLogo.vue'
-import WhatsappLogoIcon  from './icons/WhatsappLogo.vue'
-import VkLogoIcon        from './icons/VkLogo.vue'
-
 import SubmitOrderModal from '@/components/modals/SubmitOrder.vue'
-
 import PriceListButton from './PriceListButton.vue'
 
 export default {
   components: {
     SearchInput,
-    InstagramLogoIcon,
-    OkLogoIcon,
-    WhatsappLogoIcon,
-    VkLogoIcon,
     PriceListButton,
   },
   methods: {

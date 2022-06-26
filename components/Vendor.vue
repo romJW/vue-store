@@ -54,10 +54,6 @@ import { mapMutations, mapState } from 'vuex'
 import Button from '../library/Button.vue'
 import MenuIcon from './icons/Menu.vue'
 import CloseIcon from './icons/Close.vue'
-import InstagramLogoIcon from './icons/InstagramLogo.vue'
-import OkLogoIcon from './icons/OkLogo.vue'
-import WhatsappLogoIcon from './icons/WhatsappLogo.vue'
-import VkLogoIcon from './icons/VkLogo.vue'
 import Navigation from './Navigation.vue'
 import Input from '../library/Input.vue'
 import SearchInput from './SearchInput.vue'
@@ -85,10 +81,6 @@ export default {
     Button,
     SearchInput,
     CloseIcon,
-    InstagramLogoIcon,
-    OkLogoIcon,
-    WhatsappLogoIcon,
-    VkLogoIcon,
     Navigation,
     Input,
   },
