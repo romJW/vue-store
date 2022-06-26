@@ -12,10 +12,9 @@
         target="_blank"
         rel="noreferrer"
       >
-        <fa-icon
-          icon="fa-brands fa-whatsapp"
-          class="absolute w-14 h-14 inset-0"
-          :style="{ color: '#00e676' }"
+        <WhatsAppLogo
+         class="w-14 h-14"
+         color="#00e676"
         />
       </a>
     </div>
@@ -30,12 +29,13 @@ import { mapMutations, mapState } from "vuex";
 import Vendor from "../components/Vendor.vue";
 import Footer from "../components/Footer.vue";
 import MobileMenu from "../components/MobileMenu.vue";
-
+import WhatsAppLogo from "../components/icons/WhatsAppLogo.vue";
 export default {
   components: {
     Vendor,
     Footer,
     MobileMenu,
+    WhatsAppLogo,
   },
   computed: mapState({
     isMobileMenuOpen: "isMobileMenuOpen",
