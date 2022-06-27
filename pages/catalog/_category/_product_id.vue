@@ -20,30 +20,10 @@
               </h1>
               <div class="flex mb-4">
               </div>
-              <p v-if="product.deal_info" v-html="product.deal_info" class="prose max-w-none">
-              </p>
+              <span v-if="product.deal_info" class="prose max-w-none">
+                <span v-html="product.deal_info" />
+              </span>
               <hr class="my-4"/>
-              <!--
-              <div class="flex flex-col md:flex-row mt-6 md:items-center pb-5 border-b-2 border-gray-100 mb-5 gap-6">
-                <div class="flex">
-                  <span class="mr-3 flex justify-center items-center">Color</span>
-                  <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                  <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                  <button class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
-                </div>
-                <div class="flex items-center">
-                  <span class="mr-3">Size</span>
-                  <div class="">
-                    <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
-                      <option>SM</option>
-                      <option>M</option>
-                      <option>L</option>
-                      <option>XL</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              -->
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">
                   {{ product.price }} KZT
@@ -55,7 +35,9 @@
             </div>
           </div>
           <div class="pt-5">
-            <p v-if="product.description" v-html="product.description" class="prose max-w-none" />
+            <span v-if="product.description" class="prose max-w-none">
+              <span v-html="product.description" />
+            </span>
             <p v-else class="leading-relaxed text-gray-400 min-h-[200px] flex justify-center items-center">
               Описание товара отсутствует
             </p>
