@@ -113,9 +113,6 @@ export default {
       },
       update: data => {
         const product = prepareProduct(_.head(data.products))
-        if (product.images) {
-          product.images = _.map(product.images, e => e.directus_files_id.id)
-        }
         if (product.description) {
           product.description = md.render(product.description)
         }

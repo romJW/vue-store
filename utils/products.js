@@ -6,11 +6,9 @@ export default function prepare(product) {
   _.set(item, "name", item.label || `${item.manufacturer} ${item.model}`)
   _.update(item, "preview.id", getLink)
   _.update(item, "images", (images) => {
-    return _.map(images, e => {
-      if (e.directus_files_id) {
-        return { directus_files_id: { id: getLink(e.directus_files_id.id) }}
-      }
-    })
+    if (_.size(images) > 0) {
+      return _.map(images, image => getLink(image.directus_files_id.id))
+    }
   })
   return item
 }
