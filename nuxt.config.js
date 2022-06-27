@@ -28,12 +28,10 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-      },
     ],
-    script: [{ src: "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js" }],
+    script: [
+
+    ],
   },
 
   env: {
@@ -43,7 +41,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "@fortawesome/fontawesome-svg-core/styles.css"
-],
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -53,7 +51,7 @@ export default {
     { src: "@/plugins/notification.js", ssr: false },
     "@/plugins/axios.js",
     "@/plugins/icons.js",
-    
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
