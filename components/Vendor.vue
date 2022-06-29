@@ -24,15 +24,15 @@
         <a href="mailto:info@abbex.kz">info@abbex.kz</a>
         <div class="flex gap-2">
           <a href="https://vk.com/abbex">
-            <VkLogoIcon color="#4267B2" />
+            <fa-icon icon="fa-brands fa-vk" :style="{ color: '#4267B2' }" />
           </a>
           <a href="https://www.instagram.com/abbex.kz/">
-            <InstagramLogoIcon color="#4267B2"/>
+            <fa-icon icon="fa-brands fa-instagram-square" :style="{ color: '#4267B2' }"/>
           </a>
           <a href="https://wa.me/+77717411822">
-            <WhatsappLogoIcon color="#4267B2" />
+            <fa-icon icon="fa-brands fa-whatsapp-square" :style="{ color: '#4267B2' }"/>
           </a>
-          <OkLogoIcon color="#4267B2" />
+          <fa-icon icon="fa-brands fa-odnoklassniki-square" :style="{ color: '#4267B2' }"/>
         </div>
       </div>
       <div class="flex items-center lg:hidden" @click="toggleMobileMenu">
@@ -54,10 +54,6 @@ import { mapMutations, mapState } from 'vuex'
 import Button from '../library/Button.vue'
 import MenuIcon from './icons/Menu.vue'
 import CloseIcon from './icons/Close.vue'
-import InstagramLogoIcon from './icons/InstagramLogo.vue'
-import OkLogoIcon from './icons/OkLogo.vue'
-import WhatsappLogoIcon from './icons/WhatsappLogo.vue'
-import VkLogoIcon from './icons/VkLogo.vue'
 import Navigation from './Navigation.vue'
 import Input from '../library/Input.vue'
 import SearchInput from './SearchInput.vue'
@@ -85,10 +81,6 @@ export default {
     Button,
     SearchInput,
     CloseIcon,
-    InstagramLogoIcon,
-    OkLogoIcon,
-    WhatsappLogoIcon,
-    VkLogoIcon,
     Navigation,
     Input,
   },
@@ -108,7 +100,7 @@ export default {
           path: "/#polypropylene-pools",
         },
         {
-          title: "Блочно-пленочные бассейны",
+          title: "Блочно-пленочные  бассейны",
           path: "/#block-pellicle-pools",
         },
         {

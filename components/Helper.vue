@@ -1,9 +1,7 @@
 <template>
   <Popper :options="options">
     <slot slot="content" />
-    <span slot="reference" class="material-icons text-blue-500">
-      help_outline
-    </span>
+    <fa-icon icon="fa-regular fa-circle-question" slot="reference" class="text-blue-500 w-6 h-6 mb-1.5"/>
   </Popper>
 </template>
 

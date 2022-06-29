@@ -15,7 +15,7 @@
       <hr>
       <span class="flex justify-center items-center" @click="() => expanded == 'equipment' ? expanded = null : expanded = 'equipment'">
         Оборудование для бассейнов
-        <span :class="{ 'rotate-180': expanded === 'equipment' }" class="material-icons">keyboard_arrow_up</span>
+        <fa-icon :class="{ 'rotate-180': expanded === 'equipment' }" icon="fa-solid fa-angle-up"/>
       </span>
       <div v-if="expanded == 'equipment'" class="flex flex-col gap-4 p-2">
         <span @click="navigate('/catalog/plenka')">
@@ -55,7 +55,7 @@
       <hr>
       <span class="flex justify-center items-center" @click="() => expanded == 'spa' ? expanded = null : expanded = 'spa'">
         SPA и сауны
-        <span :class="{ 'rotate-180': expanded === 'spa' }" class="material-icons">keyboard_arrow_up</span>
+        <fa-icon :class="{ 'rotate-180': expanded === 'spa' }" icon="fa-solid fa-angle-up"/>
       </span>
       <div v-if="expanded == 'spa'" class="flex flex-col gap-4 p-2">
         <span @click="navigate('/catalog/spa')">
@@ -99,22 +99,22 @@
     <div class="flex gap-4">
       <a class="hover:opacity-75" href="https://vk.com/abbex" target="_blank" rel="noreferrer">
         <span class="sr-only"> VK </span>
-        <VkLogoIcon class="w-8 h-8" color="#4267B2" />
+        <fa-icon icon="fa-brands fa-vk" class="w-8 h-8" :style="{ color: '#4267B2' }" />
       </a>
 
       <a class="hover:opacity-75" href="https://www.instagram.com/abbex.kz/" target="_blank" rel="noreferrer">
         <span class="sr-only"> Instagram </span>
-        <InstagramLogoIcon class="w-8 h-8" color="#4267B2" />
+        <fa-icon icon="fa-brands fa-instagram-square" class="w-8 h-8" :style="{ color: '#4267B2' }"/>
       </a>
 
       <a class="hover:opacity-75" href="https://wa.me/+77717411822" target="_blank" rel="noreferrer">
         <span class="sr-only"> WhatsApp </span>
-        <WhatsappLogoIcon class="w-8 h-8" color="#4267B2" />
+         <fa-icon icon="fa-brands fa-whatsapp-square" class="w-8 h-8" :style="{ color: '#4267B2' }"/>
       </a>
 
       <a class="hover:opacity-75" href="" target="_blank" rel="noreferrer">
         <span class="sr-only"> OK </span>
-        <OkLogoIcon class="w-8 h-8" color="#4267B2" />
+        <fa-icon icon="fa-brands fa-odnoklassniki-square" class="w-8 h-8" :style="{ color: '#4267B2' }"/>
       </a>
     </div>
   </div>
@@ -122,10 +122,6 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex'
-import InstagramLogoIcon from './icons/InstagramLogo.vue'
-import OkLogoIcon from './icons/OkLogo.vue'
-import WhatsappLogoIcon from './icons/WhatsappLogo.vue'
-import VkLogoIcon from './icons/VkLogo.vue'
 import SearchInput from './SearchInput.vue'
 import Input from './inputs/Input.vue'
 import PriceListButton from './PriceListButton.vue'
@@ -133,10 +129,6 @@ import PriceListButton from './PriceListButton.vue'
 export default {
   components: {
     PriceListButton,
-    InstagramLogoIcon,
-    OkLogoIcon,
-    WhatsappLogoIcon,
-    VkLogoIcon,
     Input,
     SearchInput,
   },

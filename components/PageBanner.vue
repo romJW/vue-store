@@ -9,7 +9,7 @@
       <div class="flex justify-between text-white px-4 2xl:px-20 py-2 container mx-auto">
         <Breadcrumb class="hidden md:inline-flex" :items="routes" />
         <router-link to="/cart" class="text-sm flex ml-auto items-center cursor-pointer text-gray-400 hover:text-white">
-          <span class="material-icons mr-2" >shopping_cart</span>
+          <fa-icon icon="fa-solid fa-cart-shopping" />
           Корзина
           ({{ $store.getters['cart/length'] }})
         </router-link>
