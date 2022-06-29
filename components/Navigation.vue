@@ -9,9 +9,9 @@
           <nuxt-link class="text-white" v-if="item.children == null && !item.external" :to="item.path">
             {{ item.title }}
           </nuxt-link>
-          <a class="text-white flex items-center" v-if="item.children" href="#" aria-haspopup="true">
+          <a class="text-white flex items-center gap-2" v-if="item.children" href="#" aria-haspopup="true">
             {{ item.title }}
-            <fa-icon icon ='fa-solid fa-angle-down'/>
+            <fa-icon class="w-4" icon="fa-solid fa-angle-down"/>
           </a>
         </div>
         <ul v-if="item.children" class="dropdown" aria-label="submenu">
