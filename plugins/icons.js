@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { fas, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { fas, faMagnifyingGlass, faAngleUp, faAngleDown, faChevronRight, faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp, faWhatsappSquare, faVk, faInstagramSquare, faOdnoklassnikiSquare } from '@fortawesome/free-brands-svg-icons'
 import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 
@@ -14,7 +14,13 @@ library.add(fas,
   faInstagramSquare,
   faOdnoklassnikiSquare,
   faCircleQuestion,
-   faMagnifyingGlass )
+   faMagnifyingGlass,
+   faAngleUp,
+   faAngleDown,
+   faChevronRight,
+   faCartShopping,
+   faHouse,
+    )
 
 // Register the component globally
 Vue.component('fa-icon', FontAwesomeIcon)

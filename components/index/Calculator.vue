@@ -19,7 +19,7 @@
                 @click="() => { if (!open) { form.type = null; toggle() } }"
               >
                 Выберите тип чаши
-                <span :class="open ? 'material-icons' : 'material-icons rotate-180'">expand_less</span>
+               <fa-icon :icon ="open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'" />
               </div>
             </template>
             <template v-slot:open="{ toggle }">
@@ -62,7 +62,7 @@
                   @click="() => { if (!open) { toggle() } }"
                 >
                   Выберите пленку
-                  <span :class="open ? 'material-icons' : 'material-icons rotate-180'">expand_less</span>
+                  <fa-icon :icon ="open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'" />
                 </div>
               </template>
               <template v-slot:open="{ toggle }">
@@ -102,7 +102,7 @@
                   @click="() => { if (!open) { form.size = null; toggle() } }"
                 >
                   Выберите размер
-                  <span :class="open ? 'material-icons' : 'material-icons rotate-180'">expand_less</span>
+                  <fa-icon :icon ="open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'" />
                 </div>
               </template>
               <template v-slot:open="{ toggle }">

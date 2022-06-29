@@ -11,7 +11,7 @@
           </nuxt-link>
           <a class="text-white flex items-center" v-if="item.children" href="#" aria-haspopup="true">
             {{ item.title }}
-            <span class="material-icons">keyboard_arrow_down</span>
+            <fa-icon icon ='fa-solid fa-angle-down'/>
           </a>
         </div>
         <ul v-if="item.children" class="dropdown" aria-label="submenu">

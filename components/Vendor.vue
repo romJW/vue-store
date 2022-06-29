@@ -100,7 +100,7 @@ export default {
           path: "/#polypropylene-pools",
         },
         {
-          title: "Блочно-пленочные бассейны",
+          title: "Блочно-пленочные  бассейны",
           path: "/#block-pellicle-pools",
         },
         {
