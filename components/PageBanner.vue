@@ -8,8 +8,8 @@
     <div class="breadcrumb-container">
       <div class="flex justify-between text-white px-4 2xl:px-20 py-2 container mx-auto">
         <Breadcrumb class="hidden md:inline-flex" :items="routes" />
-        <router-link to="/cart" class="text-sm flex ml-auto items-center cursor-pointer text-gray-400 hover:text-white">
-          <fa-icon icon="fa-solid fa-cart-shopping" />
+        <router-link to="/cart" class="text-sm gap-2 flex ml-auto items-center cursor-pointer text-gray-400 hover:text-white">
+          <fa-icon icon="fa-solid fa-cart-shopping" class="w-4" />
           Корзина
           ({{ $store.getters['cart/length'] }})
         </router-link>

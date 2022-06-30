@@ -9,7 +9,7 @@
       </li>
       <li v-for="(item, index) in items" :key="index">
         <div class="flex items-center">
-         <fa-icon icon ='fa-solid fa-chevron-right' class="text-gray-400"/>
+          <fa-icon icon="fa-solid fa-chevron-right" class="text-gray-400 w-4"/>
           <router-link :to="item.path" class="capitalize ml-1 text-sm font-medium text-gray-400 hover:text-white md:ml-2">
             {{ item.label }}
           </router-link>

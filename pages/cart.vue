@@ -30,10 +30,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-1 mt-2 md:mt-0 md:items-end justify-between text-sm">
+                <div class="flex flex-1 mt-2 md:mt-0 md:items-end lg:items-center justify-between text-sm">
                   <div class="flex justify-center items-center gap-2">
-                    <ion-icon
-                      name="remove-outline"
+                    <fa-icon
+                      icon="fa-solid fa-minus"
                       class="w-4 h-4 text-blue-500 cursor-pointer"
                       @click="updateAmount(product, product.order.amount - 1)"
                     />
@@ -43,18 +43,15 @@
                       @change="event => updateAmount(product, event.target.value)"
                       :value="product.order.amount"
                     />
-                    <ion-icon
-                      name="add-outline"
+                    <fa-icon
+                      icon="fa-solid fa-plus"
                       class="w-4 h-4 text-blue-500 cursor-pointer"
                       @click="updateAmount(product, product.order.amount + 1)"
                     />
                   </div>
                   <div class="flex">
                     <Button type="none" class="border border-red-500" @click="() => $store.commit('cart/remove', product.id)">
-                      <ion-icon
-                        name="close-outline"
-                        class="w-4 h-4 text-red-500"
-                      />
+                      <fa-icon icon="fa-solid fa-close" class="w-4 h-4 text-red-500" />
                     </Button>
                   </div>
                 </div>
@@ -72,10 +69,11 @@
             type="default">
             Перейти к оформлению
           </Button>
-          <Card class="flex rounded-xl p-4">
-            <div>Итого: </div>
-            <div class="ml-auto">
-              <span class="font-bold">{{ totalCost }}</span> тенге
+          <Card class="rounded-xl p-4">
+            <div class="flex">
+              <span class="mr-auto">Итого: </span>
+              <span class="font-bold">{{ totalCost }}</span>
+              <span class="ml-1">тенге</span>
             </div>
           </Card>
         </div>
