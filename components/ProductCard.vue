@@ -1,5 +1,5 @@
 <template>
-  <Card class="flex flex-col">
+<div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col">
     <nuxt-link :to="href">
       <img
         class="cursor-pointer w-full"
@@ -28,18 +28,17 @@
         </Button>
       </div>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { Card, Button } from '@/library'
+import { Button } from '@/library'
 import Loading from '@/library/Loading.vue'
 
 export default {
   props: ['product'],
   components: {
-    Card,
     Button,
     Loading,
   },

@@ -69,13 +69,13 @@
             type="default">
             Перейти к оформлению
           </Button>
-          <Card class="rounded-xl p-4">
+          <div class="card bg-white rounded-lg border border-gray-200 shadow-md flex rounded-xl p-4">
             <div class="flex">
               <span class="mr-auto">Итого: </span>
               <span class="font-bold">{{ totalCost }}</span>
               <span class="ml-1">тенге</span>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +86,6 @@
 import { mapState } from 'vuex'
 import _ from 'lodash'
 
-import { Card }       from '@/library'
 import Input      from '@/library/Input.vue'
 import Button     from '@/library/Button.vue'
 import PageBanner from '@/components/PageBanner.vue'
@@ -94,7 +93,6 @@ import SubmitOrderModal from '@/components/modals/SubmitOrder.vue'
 
 export default {
   components: {
-    Card,
     Input,
     Button,
     PageBanner,

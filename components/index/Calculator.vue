@@ -226,7 +226,7 @@
             </template>
           </Disclosure>
 
-          <Card class="flex flex-col !p-4">
+          <div class="card inverse bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col !p-4">
             <div v-if="cost - totalCost > 0" class="flex flex-col mb-2">
               <span class="flex justify-between">
                 <span>Скидка на оборудование</span>
@@ -258,7 +258,7 @@
               <br>
               - Комплекта водоподготовки для запуска.
             </div>
-          </Card>
+          </div>
           <div class="hidden xl:flex justify-center mt-4">
             <Button type="default" size="lg" @click="showSubmiteOrderModal">
               Оставить заявку
@@ -285,7 +285,7 @@ import gsap from 'gsap'
 import _ from 'lodash'
 
 import getLink from    '@/utils/assets.js'
-import { Button, Input, Card } from '@/library'
+import { Button, Input,  } from '@/library'
 import Disclosure from '@/library/Disclosure'
 import RadioInput from '@/components/inputs/RadioInput.vue'
 import Radio from      '@/components/inputs/Radio.vue'
@@ -298,7 +298,7 @@ import SubmitOrderModal from '@/components/modals/SubmitOrder.vue'
 
 export default {
   components: {
-    Button, Input, Card, Tag, CheckBox, Radio, RadioInput, Disclosure
+    Button, Input, Tag, CheckBox, Radio, RadioInput, Disclosure
   },
   data() {
     return {

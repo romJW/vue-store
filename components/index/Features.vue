@@ -1,7 +1,7 @@
 <template>
   <div id="features" class="container mx-auto justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-8 gap-4">
 
-    <Card>
+   <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
       <div class="card__image">
         <AddressIcon color="#4273BD" />
       </div>
@@ -12,9 +12,9 @@
           на складе в г.Алматы
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card class="inverse">
+    <div class="card inverse bg-white rounded-lg border border-gray-200 shadow-md p-4">
       <div class="card__image">
         <RatingIcon color="#4273BD" />
       </div>
@@ -24,9 +24,9 @@
           <strong>проектный отдел</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card>
+   <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
       <div class="card__image">
         <NoteIcon color="#4273BD" />
       </div>
@@ -38,9 +38,9 @@
           <strong>производителями оборудования</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card class="inverse">
+    <div class="card inverse bg-white rounded-lg border border-gray-200 shadow-md p-4">
       <div class="card__image">
         <GroupIcon color="#4273BD" />
       </div>
@@ -49,9 +49,9 @@
           <strong>Опытные бригады полного цикла</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card>
+   <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
       <div class="card__image">
         <DevelopmentIcon color="#4273BD" />
       </div>
@@ -61,7 +61,7 @@
           полипропиленовых бассейнов
         </span>
       </div>
-    </Card>
+    </div>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ import NoteIcon from '../../components/icons/Note.vue'
 import AddressIcon from '../../components/icons/Address.vue'
 import DevelopmentIcon from '../../components/icons/Development.vue'
 import GroupIcon from '../../components/icons/Group.vue'
-import Card from '../../library/Card.vue'
+
 
 export default {
   components: {
@@ -80,7 +80,6 @@ export default {
     AddressIcon,
     GroupIcon,
     DevelopmentIcon,
-    Card,
   }
 }
 </script>

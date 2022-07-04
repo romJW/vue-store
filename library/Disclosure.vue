@@ -1,18 +1,18 @@
 <template>
-  <Card class="disclosure flex flex-col">
+ <div class="card disclosure bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col">
+  
     <slot name="header" :open="open" :toggle="toggle" />
     <slot name="open" v-if="open" :toggle="toggle" />
     <slot name="close" v-else :toggle="toggle" />
-  </Card>
+  </div>
 </template>
 
 <script>
-import Card from './Card.vue'
 
 export default {
   props: ['defaultOpen'],
   components: {
-    Card,
+   
   },
   data() {
     return {

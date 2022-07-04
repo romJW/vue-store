@@ -14,7 +14,7 @@
             </span>
           </div>
           <div class="flex flex-wrap">
-            <Card>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <CalendarIcon color="#fff" />
               </div>
@@ -23,8 +23,8 @@
                   Срок изготовления чаши до 7 дней
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <CreditCardsIcon color="#fff" />
               </div>
@@ -33,8 +33,8 @@
                   На 50% дешевле железобетонных бассейнов
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+          <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <NoteIcon color="#fff" />
               </div>
@@ -43,8 +43,8 @@
                   Отсутствие требований к уровню грунтовых вод
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <TehnicalSupportIcon color="#fff" />
               </div>
@@ -53,7 +53,7 @@
                   Срок службы чаши до 25 лет
                 </span>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ export default {
     CalendarIcon,
     CreditCardsIcon,
     NoteIcon,
-    Card
+  
   }
 }
 </script>
@@ -91,7 +91,7 @@ export default {
 }
 
 .card {
-  @apply bg-transparent border-transparent shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3;
+   @apply bg-transparent border-transparent shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3;
 
   .card__text {
     @apply text-white font-normal text-sm md:text-base;

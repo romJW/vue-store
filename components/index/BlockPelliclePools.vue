@@ -14,7 +14,7 @@
             </span>
           </div>
           <div class="flex flex-wrap">
-            <Card>
+           <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <CreditCardsIcon color="#fff" />
               </div>
@@ -27,8 +27,8 @@
                   железобетонных бассейнов
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <CubeIcon color="#fff" />
               </div>
@@ -37,8 +37,8 @@
                   Возможность изготовления любых форм и размеров
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <OkHandIcon color="#fff" />
               </div>
@@ -47,8 +47,8 @@
                   Широкий выбор ПВХ лайнер для облицовки чаши
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
               <div class="card__image">
                 <CalendarIcon color="#fff" />
               </div>
@@ -57,7 +57,7 @@
                   Быстрые сроки строительства в сравнении с ЖБ бассейнами
                 </span>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default {
     CreditCardsIcon,
     CubeIcon,
     OkHandIcon,
-    Card
+  
   }
 }
 </script>
