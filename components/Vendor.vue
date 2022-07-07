@@ -2,7 +2,7 @@
   <header class="shadow w-screen 2xl:w-full flex flex-col justify-center sticky top-[-1px] 2xl:sticky bg-white z-10">
     <div id="header__container" class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10">
       <nuxt-link to="/">
-        <img src="../assets/abbex_logo.jpg" />
+        <img class="w-28 lg:w-40" src="@/assets/logo.png" />
       </nuxt-link>
       <div class="hidden 2xl:block w-1/6 text-center">
         <span class="text-gray-500">

@@ -27,7 +27,7 @@ export default {
       { name: "yandex-verification", content: "fb9d82ed21c7d7e8" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
     ],
     script: [
 

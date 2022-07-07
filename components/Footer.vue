@@ -2,9 +2,7 @@
   <footer>
     <div class="max-w-screen-2xl px-4 py-16 mx-auto space-y-12 sm:px-6 lg:px-8">
       <div class="flex gap-4 items-center">
-        <span class="block w-32 h-10 bg-gray-200 rounded-lg">
-          <img src="../assets/abbex_logo.jpg" />
-        </span>
+        <img class="w-20 lg:w-40" src="@/assets/logo.png" />
         <span class="text-gray-500">Строительство бассейнов в Казахстане “под ключ”</span>
       </div>
       <hr>
