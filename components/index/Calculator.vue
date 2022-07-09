@@ -10,50 +10,6 @@
       </div>
       <div class="flex flex-col xl:flex-row">
         <div class="xl:w-4/12">
-          <!-- <Disclosure class="!p-4" defaultOpen="true">
-            <template v-slot:header="{ open, toggle }">
-              <div
-                class="flex justify-between w-full cursor-pointer mb-2"
-                @click="() => { if (!open) { form.type = null; toggle() } }"
-              > -->
-          <!-- Выберите тип чаши
-               <fa-icon :icon ="open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'" />
-              </div>
-            </template>
-            <template v-slot:open="{ toggle }"> -->
-          <!-- <div v-for="(label, key) in spec.typeItems" :key="key"> -->
-          <!-- <RadioInput
-                  id="typeValue"
-                  :value="key"
-                  @onChange="
-                    (value) => {
-                      form.type = value;
-                      if (key === 'liner') {
-                        delete complectation['panel'];
-                        complectation['liner'] = spec.complectations[key];
-                      } else {
-                        delete complectation['liner'];
-                        complectation['panel'] = spec.complectations[key];
-                      }
-                      form.material = null;
-                      toggle();
-                    }
-                  "
-                  name="type"
-                  :label="label"
-                /> -->
-          <!-- </div>
-            </template>
-            <template v-slot:close>
-              <CheckBox
-                v-if="form.type"
-                :label="spec.typeItems[form.type]"
-                :disabled="true"
-                :checked="true"
-              />
-            </template>
-          </Disclosure>
-  -->
           <transition name="fade">
             <Disclosure class="!p-4" defaultOpen="false">
               <template v-slot:header="{ open, toggle }">
