@@ -64,6 +64,9 @@
                     onerror="this.src='https://via.placeholder.com/600'"
                   />
                 </div>
+                <div class="flex justify-center" v-else>
+                  <Button @click="toggle">Выбрать плeнку</Button>
+                </div>
               </template>
             </Disclosure>
           </transition>
