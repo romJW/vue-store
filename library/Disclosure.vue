@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    this.open = Boolean(this.$props.defaultOpen)
+    this.open = this.$props.defaultOpen === 'true'
   },
   methods: {
     toggle () {
