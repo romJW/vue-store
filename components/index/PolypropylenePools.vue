@@ -9,68 +9,67 @@
             </h2>
           </div>
           <div>
-           <span class="text-white text-base md:text-xl">
-              Чаша бассейна изготавливается из полипропиленовых листов путем экструзионной сварки. Особенности таких бассейнов:
+            <span class="text-white text-base md:text-xl">
+              Чаша бассейна изготавливается из полипропиленовых листов путем
+              экструзионной сварки. Особенности таких бассейнов:
             </span>
           </div>
           <div class="flex flex-wrap">
-            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
+            <div class="card">
               <div class="card__image">
                 <CalendarIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  Срок изготовления чаши до 7 дней
-                </span>
+                <span> Срок изготовления чаши до 7 дней </span>
               </div>
             </div>
-            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
+            <div class="card">
               <div class="card__image">
                 <CreditCardsIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  На 50% дешевле железобетонных бассейнов
-                </span>
+                <span> На 50% дешевле железобетонных бассейнов </span>
               </div>
             </div>
-          <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
+            <div class="card">
               <div class="card__image">
                 <NoteIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  Отсутствие требований к уровню грунтовых вод
-                </span>
+                <span> Отсутствие требований к уровню грунтовых вод </span>
               </div>
             </div>
-            <div class="card bg-white rounded-lg border border-gray-200 shadow-md p-4">
+            <div class="card">
               <div class="card__image">
                 <TehnicalSupportIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  Срок службы чаши до 25 лет
-                </span>
+                <span> Срок службы чаши до 25 лет </span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="grow absolute flex z-0 top-0 w-full h-full">
-        <img class="grow hidden 2xl:block 2xl:w-5/12 object-cover" src="../../assets/block_5_1.jpg" />
-        <img class="grow hidden 2xl:block 2xl:w-7/12 object-cover" src="../../assets/block_5_2.jpg" />
+        <img
+          class="grow hidden 2xl:block 2xl:w-5/12 object-cover"
+          src="../../assets/block_5_1.jpg"
+        />
+        <img
+          class="grow hidden 2xl:block 2xl:w-7/12 object-cover"
+          src="../../assets/block_5_2.jpg"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CalendarIcon from '../../components/icons/Calendar.vue'
-import TehnicalSupportIcon from '../../components/icons/TehnicalSupport.vue'
-import CreditCardsIcon from '../../components/icons/CreditCards.vue'
-import NoteIcon from '../../components/icons/Note.vue'
-import { Card } from '../../library'
+import CalendarIcon from "../../components/icons/Calendar.vue";
+import TehnicalSupportIcon from "../../components/icons/TehnicalSupport.vue";
+import CreditCardsIcon from "../../components/icons/CreditCards.vue";
+import NoteIcon from "../../components/icons/Note.vue";
+import { Card } from "../../library";
 
 export default {
   components: {
@@ -78,9 +77,8 @@ export default {
     CalendarIcon,
     CreditCardsIcon,
     NoteIcon,
-  
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -91,7 +89,7 @@ export default {
 }
 
 .card {
-   @apply bg-transparent border-transparent shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3;
+  @apply bg-transparent border-transparent shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3 bg-white rounded-lg border border-gray-200 shadow-md p-4;
 
   .card__text {
     @apply text-white font-normal text-sm md:text-base;

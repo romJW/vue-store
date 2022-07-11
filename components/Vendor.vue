@@ -95,10 +95,7 @@ export default {
   data() {
     return {
       items: [
-        {
-          title: "Полипропиленовые бассейны",
-          path: "/#polypropylene-pools",
-        },
+        
         {
           title: "Блочно-пленочные  бассейны",
           path: "/#block-pellicle-pools",

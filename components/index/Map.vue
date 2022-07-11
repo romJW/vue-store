@@ -61,7 +61,6 @@
 </template>
 
 <script>
-
 import SubmitOrderModal from "@/components/modals/SubmitOrder.vue";
 
 export default {

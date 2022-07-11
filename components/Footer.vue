@@ -73,9 +73,6 @@
               Каталог
             </p>
             <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-              <nuxt-link class="hover:opacity-75" to="/#polypropylene-pools">
-                Полипропиленовый бассейн
-              </nuxt-link>
               <nuxt-link class="hover:opacity-75" to="/#block-pellicle-pools">
                 Блочно-пленочные бассейны
               </nuxt-link>
