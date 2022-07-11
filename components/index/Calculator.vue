@@ -779,6 +779,6 @@ export default {
   @apply 2xl:h-[820px] xl:h-[560px];
 }
 .card {
-  @apply inverse bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col !p-4;
+  @apply bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col ;
 }
 </style>

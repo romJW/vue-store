@@ -15,7 +15,7 @@
             </span>
           </div>
           <div class="flex flex-wrap">
-            <div class="card">
+            <div class="card !bg-transparent !border-transparent">
               <div class="card__image">
                 <CalendarIcon color="#fff" />
               </div>
@@ -23,7 +23,7 @@
                 <span> Срок изготовления чаши до 7 дней </span>
               </div>
             </div>
-            <div class="card">
+            <div class="card !bg-transparent !border-transparent">
               <div class="card__image">
                 <CreditCardsIcon color="#fff" />
               </div>
@@ -31,7 +31,7 @@
                 <span> На 50% дешевле железобетонных бассейнов </span>
               </div>
             </div>
-            <div class="card">
+            <div class="card !bg-transparent !border-transparent">
               <div class="card__image">
                 <NoteIcon color="#fff" />
               </div>
@@ -39,7 +39,7 @@
                 <span> Отсутствие требований к уровню грунтовых вод </span>
               </div>
             </div>
-            <div class="card">
+            <div class="card !bg-transparent !border-transparent">
               <div class="card__image">
                 <TehnicalSupportIcon color="#fff" />
               </div>
@@ -69,7 +69,6 @@ import CalendarIcon from "../../components/icons/Calendar.vue";
 import TehnicalSupportIcon from "../../components/icons/TehnicalSupport.vue";
 import CreditCardsIcon from "../../components/icons/CreditCards.vue";
 import NoteIcon from "../../components/icons/Note.vue";
-import { Card } from "../../library";
 
 export default {
   components: {
@@ -87,9 +86,11 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+ 
+ 
 .card {
-  @apply bg-transparent border-transparent shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3 bg-white rounded-lg border border-gray-200 shadow-md p-4;
+  
+  @apply  shadow-transparent basis-1/2 lg:basis-1/4 justify-start p-3 bg-white rounded-lg border border-gray-200 shadow-md p-4;
 
   .card__text {
     @apply text-white font-normal text-sm md:text-base;
