@@ -1,6 +1,11 @@
 <template>
-  <header class="shadow w-screen 2xl:w-full flex flex-col justify-center sticky top-[-1px] 2xl:sticky bg-white z-10">
-    <div id="header__container" class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10">
+  <header
+    class="shadow w-screen 2xl:w-full flex flex-col justify-center sticky top-[-1px] 2xl:sticky bg-white z-10"
+  >
+    <div
+      id="header__container"
+      class="mx-auto container flex flex-row items-center justify-between px-6 py-4 w-full gap-10"
+    >
       <nuxt-link to="/">
         <img class="w-28 lg:w-40" src="@/assets/logo.png" />
       </nuxt-link>
@@ -13,11 +18,11 @@
         <SearchInput />
       </div>
       <div class="hidden lg:flex h-12">
-        <PriceListButton/>
+        <PriceListButton />
       </div>
       <div class="hidden lg:block">
         <a href="tel:+7 (771) 741-18-22">+7 (771) 741-18-22</a>
-        <br>
+        <br />
         <a href="tel:+7 (771) 741-18-44">+7 (771) 741-18-44</a>
       </div>
       <div class="hidden lg:flex flex-col items-center justify-center">
@@ -27,12 +32,21 @@
             <fa-icon icon="fa-brands fa-vk" :style="{ color: '#4267B2' }" />
           </a>
           <a href="https://www.instagram.com/abbex.kz/">
-            <fa-icon icon="fa-brands fa-instagram-square" :style="{ color: '#4267B2' }"/>
+            <fa-icon
+              icon="fa-brands fa-instagram-square"
+              :style="{ color: '#4267B2' }"
+            />
           </a>
           <a href="https://wa.me/+77717411822">
-            <fa-icon icon="fa-brands fa-whatsapp-square" :style="{ color: '#4267B2' }"/>
+            <fa-icon
+              icon="fa-brands fa-whatsapp-square"
+              :style="{ color: '#4267B2' }"
+            />
           </a>
-          <fa-icon icon="fa-brands fa-odnoklassniki-square" :style="{ color: '#4267B2' }"/>
+          <fa-icon
+            icon="fa-brands fa-odnoklassniki-square"
+            :style="{ color: '#4267B2' }"
+          />
         </div>
       </div>
       <div class="flex items-center lg:hidden" @click="toggleMobileMenu">
@@ -50,29 +64,29 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
-import Button from '../library/Button.vue'
-import MenuIcon from './icons/Menu.vue'
-import CloseIcon from './icons/Close.vue'
-import Navigation from './Navigation.vue'
-import Input from '../library/Input.vue'
-import SearchInput from './SearchInput.vue'
+import { mapMutations, mapState } from "vuex";
+import Button from "../library/Button.vue";
+import MenuIcon from "./icons/Menu.vue";
+import CloseIcon from "./icons/Close.vue";
+import Navigation from "./Navigation.vue";
+import Input from "../library/Input.vue";
+import SearchInput from "./SearchInput.vue";
 
-import Menu1 from '../assets/menu_1.jpg'
-import Menu2 from '../assets/menu_2.jpg'
-import Menu3 from '../assets/menu_3.jpg'
-import Menu4 from '../assets/menu_4.jpg'
-import Menu5 from '../assets/menu_5.jpg'
-import Menu6 from '../assets/menu_6.jpg'
-import Menu7 from '../assets/menu_7.jpg'
-import Menu8 from '../assets/menu_8.jpg'
-import Menu9 from '../assets/menu_9.jpg'
-import Menu10 from '../assets/menu_10.jpg'
-import Menu11 from '../assets/menu_11.jpg'
-import Menu12 from '../assets/menu_12.jpg'
-import Menu13 from '../assets/menu_13.jpg'
+import Menu1 from "../assets/menu_1.jpg";
+import Menu2 from "../assets/menu_2.jpg";
+import Menu3 from "../assets/menu_3.jpg";
+import Menu4 from "../assets/menu_4.jpg";
+import Menu5 from "../assets/menu_5.jpg";
+import Menu6 from "../assets/menu_6.jpg";
+import Menu7 from "../assets/menu_7.jpg";
+import Menu8 from "../assets/menu_8.jpg";
+import Menu9 from "../assets/menu_9.jpg";
+import Menu10 from "../assets/menu_10.jpg";
+import Menu11 from "../assets/menu_11.jpg";
+import Menu12 from "../assets/menu_12.jpg";
+import Menu13 from "../assets/menu_13.jpg";
 
-import PriceListButton from './PriceListButton.vue'
+import PriceListButton from "./PriceListButton.vue";
 
 export default {
   components: {
@@ -85,17 +99,18 @@ export default {
     Input,
   },
   computed: mapState({
-    isMobileMenuOpen: 'isMobileMenuOpen',
+    isMobileMenuOpen: "isMobileMenuOpen",
   }),
   methods: {
-    ...mapMutations([
-      'toggleMobileMenu',
-    ]),
+    ...mapMutations(["toggleMobileMenu"]),
   },
   data() {
     return {
       items: [
-        
+        {
+          title: "Полипропиленовые бассейны",
+          path: "/#polypropylene-pools",
+        },
         {
           title: "Блочно-пленочные  бассейны",
           path: "/#block-pellicle-pools",
@@ -113,9 +128,9 @@ export default {
                 title: "Сауны",
                 path: "/catalog/sauny",
                 image: Menu11,
-              }
+              },
             ],
-          ]
+          ],
         },
         {
           title: "Оборудование",
@@ -131,7 +146,7 @@ export default {
                 title: "Насосы",
                 path: "/catalog/nasosy",
                 image: Menu10,
-              }
+              },
             ],
             [
               {
@@ -188,7 +203,7 @@ export default {
             /*     image: Menu13, */
             /*   }, */
             /* ], */
-          ]
+          ],
         },
         {
           title: "Павильоны для бассейнов",
@@ -197,7 +212,7 @@ export default {
         {
           title: "Все для террас",
           path: "http://dpksklad.kz/",
-          external: true
+          external: true,
         },
         {
           title: "Портфолио",
@@ -207,10 +222,10 @@ export default {
           title: "Рассчитать стоимость",
           path: "/#calculator",
         },
-      ]
-    }
+      ],
+    };
   },
-}
+};
 </script>
 
 <style scoped>
