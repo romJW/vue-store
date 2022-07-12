@@ -10,75 +10,15 @@
       </div>
       <div class="flex flex-col xl:flex-row">
         <div class="xl:w-4/12">
-          <Disclosure class="!p-4" defaultOpen="true">
-            <template v-slot:header="{ open, toggle }">
-              <div
-                class="flex justify-between w-full cursor-pointer mb-2"
-                @click="
-                  () => {
-                    if (!open) {
-                      form.type = null;
-                      toggle();
-                    }
-                  }
-                "
-              >
-                Выберите тип чаши
-                <fa-icon
-                  :icon="
-                    open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'
-                  "
-                />
-              </div>
-            </template>
-            <template v-slot:open="{ toggle }">
-              <div v-for="(label, key) in spec.typeItems" :key="key">
-                <RadioInput
-                  id="typeValue"
-                  :value="key"
-                  @onChange="
-                    (value) => {
-                      form.type = value;
-                      if (key === 'liner') {
-                        delete complectation['panel'];
-                        complectation['liner'] = spec.complectations[key];
-                      } else {
-                        delete complectation['liner'];
-                        complectation['panel'] = spec.complectations[key];
-                      }
-                      form.material = null;
-                      toggle();
-                    }
-                  "
-                  name="type"
-                  :label="label"
-                />
-              </div>
-            </template>
-            <template v-slot:close>
-              <CheckBox
-                v-if="form.type"
-                :label="spec.typeItems[form.type]"
-                :disabled="true"
-                :checked="true"
-              />
-            </template>
-          </Disclosure>
-
           <transition name="fade">
-            <Disclosure
-              class="!p-4"
-              v-if="form.type === 'liner'"
-              defaultOpen="true"
-            >
+            <Disclosure class="!p-4" defaultOpen="false">
               <template v-slot:header="{ open, toggle }">
                 <div
                   class="flex justify-between w-full cursor-pointer mb-2"
                   @click="
                     () => {
-                      if (!open) {
-                        toggle();
-                      }
+                      toggle();
+                      form.material = null;
                     }
                   "
                 >
@@ -124,21 +64,20 @@
                     onerror="this.src='https://via.placeholder.com/600'"
                   />
                 </div>
+                
               </template>
             </Disclosure>
           </transition>
 
           <transition name="fade">
-            <Disclosure class="!p-4" v-if="form.type" defaultOpen="true">
+            <Disclosure class="!p-4" defaultOpen="false">
               <template v-slot:header="{ open, toggle }">
                 <div
                   class="flex justify-between w-full cursor-pointer mb-2"
                   @click="
                     () => {
-                      if (!open) {
-                        form.size = null;
-                        toggle();
-                      }
+                      form.size = null;
+                      toggle();
                     }
                   "
                 >
@@ -399,7 +338,7 @@ import gsap from "gsap";
 import _ from "lodash";
 
 import getLink from "@/utils/assets.js";
-import { Button, Input } from "@/library";
+import { Button, Input, Card } from "@/library";
 import Disclosure from "@/library/Disclosure";
 import RadioInput from "@/components/inputs/RadioInput.vue";
 import Radio from "@/components/inputs/Radio.vue";

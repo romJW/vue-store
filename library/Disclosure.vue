@@ -16,11 +16,11 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: true
     }
   },
   mounted() {
-    this.open = Boolean(this.$props.defaultOpen)
+    this.open = this.$props.defaultOpen === 'true'
   },
   methods: {
     toggle () {
