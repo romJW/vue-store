@@ -10,45 +10,43 @@
           </div>
           <div>
             <span class="text-white text-base md:text-xl">
-              Стены бассейна изготавливаются из бетонных блоков, и облицовываются ПВХ пленкой. Особенности блочно-пленочных бассейнов:
+              Стены бассейна изготавливаются из бетонных блоков, и
+              облицовываются ПВХ пленкой. Особенности блочно-пленочных
+              бассейнов:
             </span>
           </div>
           <div class="flex flex-wrap">
-            <Card>
+            <div class="card">
               <div class="card__image">
                 <CreditCardsIcon color="#fff" />
               </div>
               <div class="card__text">
                 <span>
                   Простота в монтаже
-                  <br/>
+                  <br />
                   На 30% дешевле
-                  <br/>
+                  <br />
                   железобетонных бассейнов
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card">
               <div class="card__image">
                 <CubeIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  Возможность изготовления любых форм и размеров
-                </span>
+                <span> Возможность изготовления любых форм и размеров </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card">
               <div class="card__image">
                 <OkHandIcon color="#fff" />
               </div>
               <div class="card__text">
-                <span>
-                  Широкий выбор ПВХ лайнер для облицовки чаши
-                </span>
+                <span> Широкий выбор ПВХ лайнер для облицовки чаши </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div class="card">
               <div class="card__image">
                 <CalendarIcon color="#fff" />
               </div>
@@ -57,24 +55,29 @@
                   Быстрые сроки строительства в сравнении с ЖБ бассейнами
                 </span>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
       <div class="grow absolute flex flex-row-reverse z-0 top-0 w-full h-full">
-        <img class="grow hidden 2xl:block 2xl:w-5/12 object-cover" src="../../assets/block_3_2.jpg" />
-        <img class="grow hidden 2xl:block 2xl:w-7/12 object-cover" src="../../assets/block_3_1.jpg" />
+        <img
+          class="grow hidden 2xl:block 2xl:w-5/12 object-cover"
+          src="../../assets/block_3_2.jpg"
+        />
+        <img
+          class="grow hidden 2xl:block 2xl:w-7/12 object-cover"
+          src="../../assets/block_3_1.jpg"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CalendarIcon from '../../components/icons/Calendar.vue'
-import CreditCardsIcon from '../../components/icons/CreditCards.vue'
-import OkHandIcon from '../../components/icons/OkHand.vue'
-import CubeIcon from '../../components/icons/Cube.vue'
-import { Card } from '../../library'
+import CalendarIcon from "../../components/icons/Calendar.vue";
+import CreditCardsIcon from "../../components/icons/CreditCards.vue";
+import OkHandIcon from "../../components/icons/OkHand.vue";
+import CubeIcon from "../../components/icons/Cube.vue";
 
 export default {
   components: {
@@ -82,9 +85,8 @@ export default {
     CreditCardsIcon,
     CubeIcon,
     OkHandIcon,
-    Card
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

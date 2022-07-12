@@ -1,20 +1,22 @@
 <template>
-  <div id="features" class="container mx-auto justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-8 gap-4">
-
-    <Card>
+  <div
+    id="features"
+    class="container mx-auto justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-8 gap-4"
+  >
+    <div class="card">
       <div class="card__image">
         <AddressIcon color="#4273BD" />
       </div>
       <div class="card__text">
         <span>
           <strong>Наличие оборудования полного цикла</strong>
-          <br>
+          <br />
           на складе в г.Алматы
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card class="inverse">
+    <div class="card inverse">
       <div class="card__image">
         <RatingIcon color="#4273BD" />
       </div>
@@ -24,23 +26,23 @@
           <strong>проектный отдел</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card>
+    <div class="card">
       <div class="card__image">
         <NoteIcon color="#4273BD" />
       </div>
       <div class="card__text">
         <span>
           <strong>Прямые контракты</strong>
-          <br>
+          <br />
           с заводами
           <strong>производителями оборудования</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card class="inverse">
+    <div class="card inverse">
       <div class="card__image">
         <GroupIcon color="#4273BD" />
       </div>
@@ -49,9 +51,9 @@
           <strong>Опытные бригады полного цикла</strong>
         </span>
       </div>
-    </Card>
+    </div>
 
-    <Card>
+    <div class="card">
       <div class="card__image">
         <DevelopmentIcon color="#4273BD" />
       </div>
@@ -61,17 +63,16 @@
           полипропиленовых бассейнов
         </span>
       </div>
-    </Card>
+    </div>
   </div>
 </template>
 
 <script>
-import RatingIcon from '../../components/icons/Rating.vue'
-import NoteIcon from '../../components/icons/Note.vue'
-import AddressIcon from '../../components/icons/Address.vue'
-import DevelopmentIcon from '../../components/icons/Development.vue'
-import GroupIcon from '../../components/icons/Group.vue'
-import Card from '../../library/Card.vue'
+import RatingIcon from "../../components/icons/Rating.vue";
+import NoteIcon from "../../components/icons/Note.vue";
+import AddressIcon from "../../components/icons/Address.vue";
+import DevelopmentIcon from "../../components/icons/Development.vue";
+import GroupIcon from "../../components/icons/Group.vue";
 
 export default {
   components: {
@@ -80,14 +81,13 @@ export default {
     AddressIcon,
     GroupIcon,
     DevelopmentIcon,
-    Card,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 * {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 svg {
@@ -103,16 +103,16 @@ svg {
 }
 
 .card {
-  @apply w-full basis-1/4 md:basis-1/3 lg:basis-1/4 xl:basis-1/6 p-6;
+  @apply w-full basis-1/4 md:basis-1/3 lg:basis-1/4 xl:basis-1/6 p-6 bg-white rounded-lg border border-gray-200 shadow-md p-4;
   background: rgba(232, 247, 252, 0.6);
 
   &.inverse {
     background: rgba(232, 247, 252, 0.2) !important;
   }
 
-  .card__text{
+  .card__text {
     @apply font-normal text-base;
-    color: #5877A5;
+    color: #5877a5;
   }
 }
 </style>

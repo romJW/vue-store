@@ -1,5 +1,7 @@
 <template>
-  <Card class="flex flex-col">
+  <div
+    class="card bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col"
+  >
     <nuxt-link :to="href">
       <img
         class="cursor-pointer w-full"
@@ -24,40 +26,39 @@
           data-type="default"
           @click="isInCart(product) ? removeFromCart() : addToCart()"
         >
-          {{ isInCart(product) ? 'Добавлено' : 'В корзину' }}
+          {{ isInCart(product) ? "Добавлено" : "В корзину" }}
         </Button>
       </div>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { Card, Button } from '@/library'
-import Loading from '@/library/Loading.vue'
+import { mapGetters } from "vuex";
+import { Button } from "@/library";
+import Loading from "@/library/Loading.vue";
 
 export default {
-  props: ['product'],
+  props: ["product"],
   components: {
-    Card,
     Button,
     Loading,
   },
   computed: {
     ...mapGetters({
-      isInCart: 'cart/isInCart',
+      isInCart: "cart/isInCart",
     }),
     href() {
-      return `/catalog/${this.$props.product.category.id}/${this.$props.product.id}`
-    }
+      return `/catalog/${this.$props.product.category.id}/${this.$props.product.id}`;
+    },
   },
   methods: {
-    addToCart () {
-      this.$store.commit('cart/add', this.$props.product)
+    addToCart() {
+      this.$store.commit("cart/add", this.$props.product);
     },
-    removeFromCart () {
-      this.$store.commit('cart/remove', this.$props.product.id)
+    removeFromCart() {
+      this.$store.commit("cart/remove", this.$props.product.id);
     },
-  }
-}
+  },
+};
 </script>
