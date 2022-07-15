@@ -22,9 +22,30 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    themes: [
+      {
+        bluesky: {
+          "primary": "#0ea5e9",
+          "primary-content" : "#f3f4f6",
+          "secondary": "#D926A9",
+          "accent": "#1FB2A6",     
+          "neutral": "#191D24",   
+          "base-100": "#f3f4f6", 
+          "info": "#3ABFF8",   
+          "success": "#36D399",
+          "warning": "#FBBD23",       
+          "error": "#F87272",
+        },
+      },
+    ],
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require("daisyui"),
   ],
+  client: {
+    service: "my-apollo-service",
+  }, 
 }
