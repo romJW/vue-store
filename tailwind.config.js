@@ -44,8 +44,5 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require("daisyui"),
-  ],
-  client: {
-    service: "my-apollo-service",
-  }, 
+  ], 
 }
