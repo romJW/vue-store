@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-theme="bluesky">
     <notifications position="top right" />
     <Vendor class="z-50 min-h-[100px]" />
     <MobileMenu class="2xl:pt-0" v-if="isMobileMenuOpen" />

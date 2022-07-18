@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center gap-2">
     <input
-      class="text-blue-500 disabled:text-blue-400 cursor-pointer disabled:cursor-default"
-      :checked="checked"
+      class="checkbox checkbox-primary checkbox-xs rounded-none border-black"
       type="checkbox"
+      :checked="checked"
       :id="value"
       :value="value"
       :disabled="disabled"
@@ -22,3 +22,4 @@ export default {
   }
 }
 </script>
+
